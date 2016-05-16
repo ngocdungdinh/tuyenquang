@@ -1,0 +1,53 @@
+{
+	"name": "binhbeer/bbcms",
+    "description": "BBCMS powered by Laravel 4, Twitter Bootstrap, HTML5.",
+    "keywords": ["laravel","cms","bbcms","binhbeer","taymay.vn"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BinhBEER",
+            "email": "binhbeer@taymay.vn",
+            "role": "Developer"
+        }
+    ],
+	"require": {
+		"laravel/framework": "4.1.*",
+		"illuminate/support": "4.1.*",
+		"cartalyst/sentry": "2.1.*",
+		"imagine/imagine": "~0.6.0",
+		"madewithlove/laravel-oauth2": "0.4.*",
+		"artdarek/oauth-4-laravel": "dev-master",
+		"jasonnz/jinput": "dev-master",
+		"fbf/laravel-youtube": "dev-master"
+	},
+	"autoload": {
+		"classmap": [
+			"app/commands",
+			"app/controllers",
+			"app/models",
+			"app/tests/TestCase.php",
+            "app/database/migrations",
+            "app/database/seeds",
+			"app/services",
+			"app/facades"
+		]
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"php artisan optimize"
+		],
+		"pre-update-cmd": [
+			"php artisan clear-compiled"
+		],
+		"post-update-cmd": [
+			"php artisan optimize"
+		],
+		"post-create-project-cmd": [
+			"php artisan key:generate"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "dev"
+}
