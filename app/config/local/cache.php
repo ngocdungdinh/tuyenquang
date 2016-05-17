@@ -19,7 +19,7 @@ return array(
 
 	'redis' => array(
 	    'cluster' => true,
-	    'default' => array('host' => '123.30.241.129', 'port' => 6379),
+	    'default' => array('host' => '127.0.0.1', 'port' => 6379),
 	),
 
 	/*
