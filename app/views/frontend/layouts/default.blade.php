@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html class="no-js">
 <head>
-    <title>TUYEN QUANG</title>
+    <title>
+        @section('title')
+            {{ Config::get('settings.sitename') }}
+        @show
+    </title>
     <meta charset="utf-8">
     <meta name="format-detection">
     <!--<link rel="stylesheet" href="css/bootstrap.css">	 -->
