@@ -29,7 +29,7 @@ text-align:center;
 color:#333 !important;
 }
 /************************MENU*******************/
-.bg_menu.contact, .contact2
+.bg_menu.contact, .contact2{
 background-color:#005197;
 }
 
@@ -504,7 +504,7 @@ margin-bottom:10px;
 margin-left:5px;
 }
 
-.row logo{
+.row .logo{
 float:left;
 /*width:100%;*/
 }
@@ -521,7 +521,7 @@ float:left;
 	
 }
 
-.row bg_menu{
+.row .bg_menu{
 	float:left;
 	width:100%;
 	background-color:#005197;
@@ -702,7 +702,7 @@ text-align:justify;
 #tabs ul {
 	padding: 0;
 	margin: 0px 0px 10px 0px;
-	width; 100%;
+	width: 100%;
 }
 #tabs li a{
 	color: #333;
@@ -872,7 +872,7 @@ margin:20px 0;
 }
 .txt_footer a {
 	display: inline!important;
-	color:666 !important;
+	color:#666 !important;
 }
 .txt_footer span {
 	display: inline!important;
@@ -921,7 +921,7 @@ float:left;
 	float:left;
 	/*width:58%;*/
 }
-.tt_thumb,tt_thumb2 {
+.tt_thumb, .tt_thumb2 {
 	margin: 0px 10px 15px 0px;
 }
 .tt_thumb2{

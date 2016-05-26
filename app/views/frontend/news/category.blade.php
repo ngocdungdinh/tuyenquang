@@ -24,24 +24,30 @@
 								<span><a href="#">Tin quốc tế</a></span>
 							</p>
 						</div>
-						<div class="tin1">
+						<!--
+                        <div class="tin1">
 							<div class="col-md-4 tt_thumb2"><img src="{{ asset('assets/img/thumb3.png') }}"/></span></div>
 							<div class="col-md-8 content">
 								<a class="title_left" href="#">Năm học 2015-2016 triển khai ứng dụng phần mềm quản lý học sinh vnEdu cho tất cả các cấp học.<br/>
 									<span style="color:#999999;">[17/03/2016]</span>
 								</a>
 								<span>triển khai ứng dụng phần mềm quản lý học sinh</span>
-							</div>
-						</div><!--tin--->
-						<div class="tin">
-							<div class="col-md-4 tt_thumb2"><img src="{{ asset('assets/img/thumb3.png') }}"/></span></div>
+                            </div>
+                        </div>
+                        -->
+                        @foreach ($posts as $key => $post)
+                        <div class="tin">
+							<div class="col-md-4 tt_thumb2"><span><img src="{{ asset($post->mpath . '/235x178_crop/'. $post->mname) }}"/></span></div>
 							<div class="col-md-8 content">
-								<a class="title_left" href="#">Năm học 2015-2016 triển khai ứng dụng phần mềm quản lý học sinh vnEdu cho tất cả các cấp học.<br/>
+								<a class="title_left" href="{{ $post->url() }}" title="{{ $post->title }}">{{ $post->title }} @include('frontend/news/frags/status')<br/>
 									<span style="color:#999999;">[17/03/2016]</span>
 								</a>
-								<span>triển khai ứng dụng phần mềm quản lý học sinh</span>
+								<span>{{ Str::words($post->excerpt, 24) }}</span>
 							</div>
-						</div><!--tin--->
+						</div>
+                        @endforeach
+
+
 						<div class="tin">
 							<div class="col-md-4 tt_thumb2"><img src="{{ asset('assets/img/thumb3.png') }}"/></span></div>
 							<div class="col-md-8 content">
@@ -98,7 +104,11 @@
 						</div><!--tin--->
 
 					</div>
+
 				</div>
+                <div class="paging">
+                    {{ $posts->links() }}
+                </div>
 			</div>
 		</div>
 		<!---------------------------------------------------end left------------------------------------------------------------->
