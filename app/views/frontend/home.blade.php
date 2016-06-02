@@ -46,18 +46,12 @@
 						<span style="float:left"><a href="#"><img src="{{ asset('assets/img/next.png') }}"></a></span>
 					</div>
 					<div class="col-md-12 tintuc_item inner-left">
+						@foreach($intro as $key => $intro)
 						<div class="col-md-4 thumnail ">
-							<img class="img-resp" src="{{ asset('assets/img/p1.png') }}"/>
-							<div class="title"><a href="#">Các lễ hội đặc sắc ở Tuyên Quang</a></div>
+							<img class="img-resp" src="{{ asset($intro->mpath . '/235x178_crop/'. $intro->mname) }}"/>
+							<div class="title"><a href="{{ $intro->url() }}" title="{{ $intro->title }}">{{ $intro->title }}</a></div>
 						</div>
-						<div class="col-md-4 thumnail ">
-							<img class="img-resp" src="{{ asset('assets/img/thumb1.png') }}"/>
-							<div class="title"><a href="#">Điểm du lịch Na Hang giữa thác và núi </a></div>
-						</div>
-						<div class="col-md-4 thumnail ">
-							<img class="img-resp" src="{{ asset('assets/img/thumb1.png') }}"/>
-							<div class="title"><a href="#">Điểm du lịch Na Hang giữa thác và núi </a></div>
-						</div>
+						@endforeach
 					</div>
 				</div>
 			</div><!--tintuc_div-->
@@ -75,20 +69,15 @@
 								<span><a href="#">Tin quốc tế</a></span>
 							</p>
 						</div>
+						@foreach($newshome as $key => $newshome)
 						<div class="tin01">
-							<div class="tt_thumb2"><img class="tt_thumb" src="{{ asset('assets/img/thumb2.png') }}" align="left"/></div>
+							<div class="tt_thumb2"><img class="tt_thumb" src="{{ asset($newshome->mpath . '/140x106_crop/'. $newshome->mname) }}" align="left"/></div>
 							<div class="content2">
-								<p><a href="#">Sở ngoại vụ tổ chức hội nghị tổng kết công tác năm 2015 triển khai nhiệm vụ năm 2016<br/></a></p>
+								<p><a href="{{ $newshome->url() }}" title="{{ $newshome->title }}">{{ $newshome->title }}<br/></a></p>
 								<p class="date"><span >[17/03/2016]</span></p>
 							</div>
 						</div>
-						<div class="tin01">
-							<div class="tt_thumb2"><img class="tt_thumb" src="{{ asset('assets/img/thumb2.png') }}" align="left"/></div>
-							<div class="content2">
-								<p><a href="#">Sở ngoại vụ tổ chức hội nghị tổng kết công tác năm 2015 triển khai nhiệm vụ năm 2016<br/></a></p>
-								<p class="date"><span >[17/03/2016]</span></p>
-							</div>
-						</div>
+						@endforeach
 
 						<ul style="margin:0; float:left; padding:5px;;">
 							<li class="link"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Lễ kỉ niệm 40 năm quốc khánh CHDCNN Lào</a></li>

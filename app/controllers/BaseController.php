@@ -31,6 +31,7 @@ class BaseController extends Controller {
 		$this->beforeFilter('csrf', array('on' => 'post'));
 
 		// $this->data['categories'] = Category::where('showon_menu', '>', 0)->orderBy('showon_menu', 'ASC')->get();
+		$this->data['categories'] = Category::where('status', 'on')->where('showon_position', 1)->orderBy('showon_menu', 'ASC')->get();
 			
 		$this->data['u'] = $this->u = Sentry::check() ? Sentry::getUser() : null;
 		//

@@ -74,6 +74,7 @@ visibility:visible;/* background:url(../img/line_menu.png); width:20px; float:le
 	font-weight:normal;
 	font-size:15px;
 	line-height:48px;
+	 max-width: 200px;
 }
 .menu-item  .linebr{ line-height:24px;}
 .menu-item.active,

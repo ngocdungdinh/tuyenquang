@@ -15,13 +15,12 @@
 				<div class="col-md-10 tintuc_div">
 					<div class="tt_item">
 						<div class="tab line_text2">
-							<p><span class="tit_underline">TIN TỨC & SỰ KIỆN</span></p>
+							<p><span class="tit_underline">{{ strtoupper($category->name) }}</span></p>
 							<p class="sub_tab">
-								<span><a href="#">Tin trong tỉnh</a></span>
-								<span> | </span>
-								<span><a href="#">Tin trong nước</a></span>
-								<span> | </span>
-								<span><a href="#">Tin quốc tế</a></span>
+								@foreach($subcate as $submenu)
+									<span><a href="{{ route('view-category', $submenu->slug) }}">{{ $submenu->name }}</a></span>
+									<span> | </span>
+								@endforeach
 							</p>
 						</div>
 						<!--
@@ -39,70 +38,13 @@
                         <div class="tin">
 							<div class="col-md-4 tt_thumb2"><span><img src="{{ asset($post->mpath . '/235x178_crop/'. $post->mname) }}"/></span></div>
 							<div class="col-md-8 content">
-								<a class="title_left" href="{{ $post->url() }}" title="{{ $post->title }}">{{ $post->title }} @include('frontend/news/frags/status')<br/>
+								<a class="title_left" href="{{ $post->url() }}" title="{{ $post->title }}">{{ $post->title }}<br/>
 									<span style="color:#999999;">[17/03/2016]</span>
 								</a>
 								<span>{{ Str::words($post->excerpt, 24) }}</span>
 							</div>
 						</div>
                         @endforeach
-
-
-						<div class="tin">
-							<div class="col-md-4 tt_thumb2"><img src="{{ asset('assets/img/thumb3.png') }}"/></span></div>
-							<div class="col-md-8 content">
-								<a class="title_left" href="#">Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả.<br/>
-									<span style="color:#999999;">[17/03/2016]</span>
-								</a>
-								<span>Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả. triển khai ứng dụng phần mềm quản lý học sinh</span>
-							</div>
-						</div><!--tin--->
-						<div class="tin">
-							<div class="col-md-4 tt_thumb2"><img src="{{ asset('assets/img/thumb3.png') }}"/></span></div>
-							<div class="col-md-8 content">
-								<a class="title_left" href="#">Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả..<br/>
-									<span style="color:#999999;">[17/03/2016]</span>
-								</a>
-								<span>Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả. triển khai ứng dụng phần mềm quản lý học sinh</span>
-							</div>
-						</div><!--tin--->
-						<div class="tin">
-							<div class="col-md-4 tt_thumb2"><img src="{{ asset('assets/img/thumb3.png') }}"/></span></div>
-							<div class="col-md-8 content">
-								<a class="title_left" href="#">Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả..<br/>
-									<span style="color:#999999;">[17/03/2016]</span>
-								</a>
-								<span>Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả. triển khai ứng dụng phần mềm quản lý học sinh</span>
-							</div>
-						</div><!--tin--->
-						<div class="tin">
-							<div class="col-md-4 tt_thumb2"><img src="{{ asset('assets/img/thumb3.png') }}"/></span></div>
-							<div class="col-md-8 content">
-								<a class="title_left" href="#">Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả..<br/>
-									<span style="color:#999999;">[17/03/2016]</span>
-								</a>
-								<span>Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả. triển khai ứng dụng phần mềm quản lý học sinh</span>
-							</div>
-						</div><!--tin--->
-						<div class="tin">
-							<div class="col-md-4 tt_thumb2"><img src="{{ asset('assets/img/thumb3.png') }}"/></span></div>
-							<div class="col-md-8 content">
-								<a class="title_left" href="#">Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả..<br/>
-									<span style="color:#999999;">[17/03/2016]</span>
-								</a>
-								<span>Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả. triển khai ứng dụng phần mềm quản lý học sinh</span>
-							</div>
-						</div><!--tin--->
-						<div class="tin">
-							<div class="col-md-4 tt_thumb2"><img src="{{ asset('assets/img/thumb3.png') }}"/></span></div>
-							<div class="col-md-8 content">
-								<a class="title_left" href="#">Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả..<br/>
-									<span style="color:#999999;">[17/03/2016]</span>
-								</a>
-								<span>Để việc thực hiện biên bản thỏa thuận về hợp tác với Lào đi vào chiều sâu và hiệu quả. triển khai ứng dụng phần mềm quản lý học sinh</span>
-							</div>
-						</div><!--tin--->
-
 					</div>
 
 				</div>
@@ -126,11 +68,13 @@
 
 			<div class="list_right2">
 				<ul style="margin:0; float:left; padding:5px;">
-					<li class="link"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Giới thiệu tỉnh Tuyên Quang</a></li>
+
+					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Giới thiệu tỉnh Tuyên Quang</a></li>
 					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Giới thiệu Sở Ngoại vụ</a></li>
 					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Văn bản pháp quy</a></li>
 					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Thông tin đối ngoại</a></li>
 					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Thông tin đoàn</a></li>
+
 					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Liên kết web</a></li>
 					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Thư viện ảnh</a></li>
 					<li class="link_1"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Liên hệ</a></li>

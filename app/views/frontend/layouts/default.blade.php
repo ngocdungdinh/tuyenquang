@@ -13,7 +13,7 @@
     <!--<link rel="stylesheet" href="css/bootstrap-theme.css">	 	 -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-theme.min.css') }}">
 
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="{{ asset('assets/js/jquery.1.10.2.min.js') }}"></script>
     <!--<script src="js/bootstrap.js"></script>	 -->
     <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/bootstrap-hover-dropdown.js') }}"></script>
@@ -55,41 +55,59 @@
 <div class="clearfix row  menu " >
     <div class="container nav" id="menu">
         <ul class="navbar-nav">
-            <li class="col-md-1 menu-item"><a href="index.html">Tin tức & Sự kiện</a></li>
-            <li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>
-            <li class="col-md-1 menu-item" role="presentation">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hợp tác quốc tế</a>
-            </li>
-            <li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>
-            <li class="col-md-2 menu-item"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lãnh sự - Việt Kiều</a>
-            </li>
-            <li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>
-            <li class="col-md-1 menu-item"><a class="linebr dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Người Tuyên Quang<br/>ở nước ngoài</a>
-            </li>
-            <li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>
-            <li class="col-md-2 menu-item"><a class="linebr" href="#">Hội hiệp các tổ chức<br/> hữu nghị tỉnh Tuyên Quang</a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="#">Các tổ chức thành viên</a>
-                    </li>
-                    <li>
-                        <a href="news.html">Vận động viện trợ phi chính phủ<br/>nước ngoài</a>
+            @foreach($categories as $menu)
+                @if($menu->parent_id == 0)
+                    <li class="col-md-2 menu-item"><a href="{{ route('view-category', $menu->slug) }}" class="linebr">{{ $menu->name }}</a>
+                        <ul class="dropdown-menu">
+                            @foreach($categories as $submenu)
+                                @if($submenu->parent_id == $menu->id)
+                                    <li>
+                                        <a href="{{ route('view-category', $submenu->slug) }}">{{ $submenu->name }}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
                     </li>
 
-                </ul>
-            </li>
-            <li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>
-            <li class="col-md-2 menu-item"><a href="#">Các dự án mời gọi đầu tư</a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="#">Dự án đầu tư trực tiếp nước ngoài </br> (FDI)</a>
-                    </li>
-                    <li>
-                        <a href="news.html">Dự án vận động viện trợ chi phí <br/> chính phủ nước ngoài (FNGO)</a>
-                    </li>
+                    <li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>
+                @endif
+            @endforeach
+                {{--<li class="col-md-1 menu-item"><a href="index.html">Tin tức & Sự kiện</a></li>--}}
+                {{--<li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>--}}
+                {{--<li class="col-md-1 menu-item" role="presentation">--}}
+                    {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Hợp tác quốc tế</a>--}}
+                {{--</li>--}}
+                {{--<li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>--}}
+                {{--<li class="col-md-2 menu-item"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Lãnh sự - Việt Kiều</a>--}}
+                {{--</li>--}}
+                {{--<li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>--}}
+                {{--<li class="col-md-1 menu-item"><a class="linebr dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Người Tuyên Quang<br/>ở nước ngoài</a>--}}
+                {{--</li>--}}
+                {{--<li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>--}}
+                {{--<li class="col-md-2 menu-item"><a class="linebr" href="#">Hội hiệp các tổ chức<br/> hữu nghị tỉnh Tuyên Quang</a>--}}
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li>--}}
+                            {{--<a href="#">Các tổ chức thành viên</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="news.html">Vận động viện trợ phi chính phủ<br/>nước ngoài</a>--}}
+                        {{--</li>--}}
 
-                </ul>
-            </li>
+                    {{--</ul>--}}
+                {{--</li>--}}
+                {{--<li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>--}}
+                {{--<li class="col-md-2 menu-item"><a href="#">Các dự án mời gọi đầu tư</a>--}}
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li>--}}
+                            {{--<a href="#">Dự án đầu tư trực tiếp nước ngoài </br> (FDI)</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="news.html">Dự án vận động viện trợ chi phí <br/> chính phủ nước ngoài (FNGO)</a>--}}
+                        {{--</li>--}}
+
+                    {{--</ul>--}}
+                {{--</li>--}}
+
         </ul>
     </div>
 </div>

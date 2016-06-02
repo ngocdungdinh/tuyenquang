@@ -106,7 +106,7 @@
 				<!-- Footer -->
 				<footer align="center">
 					<div class="copyright">
-			        	Copyright © 2013. All rights reserved. Powered by <a target="_blank" href="http://cms.binhbeer.com">BBCMS</a>
+			        	Copyright © 2013. All rights reserved. Powered by <a target="_blank" href="#">BBCMS</a>
 			        </div>
 				</footer>
 			</aside>

@@ -66,6 +66,16 @@ Sửa chuyên mục ::
 									</div>
 
 									<div class="form-group">
+										<label for="showon_position" class="col-md-4 control-label">Vị trí hiển thị</label>
+										<div class="col-md-6">
+											<select name="showon_position" class="form-control">
+												<option value="1" {{ $category->showon_position=='1' ? 'selected="selected"' : '' }}>Menu chính</option>
+												<option value="2" {{ $category->showon_position=='2' ? 'selected="selected"' : '' }}>Sidebar</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="form-group">
 										<label for="status" class="col-md-4 control-label">Trạng thái</label>
 										<div class="col-md-6">
 											<select name="status" class="form-control">
