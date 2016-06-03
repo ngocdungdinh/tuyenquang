@@ -69,20 +69,24 @@
 								<span><a href="#">Tin quốc tế</a></span>
 							</p>
 						</div>
-						@foreach($newshome as $key => $newshome)
-						<div class="tin01">
-							<div class="tt_thumb2"><img class="tt_thumb" src="{{ asset($newshome->mpath . '/140x106_crop/'. $newshome->mname) }}" align="left"/></div>
-							<div class="content2">
-								<p><a href="{{ $newshome->url() }}" title="{{ $newshome->title }}">{{ $newshome->title }}<br/></a></p>
-								<p class="date"><span >[17/03/2016]</span></p>
-							</div>
-						</div>
-						@endforeach
+						@if(count($newshome) > 0)
+							@for ($i = 0; $i <= 1; $i++)
+								<div class="tin01">
+									<div class="tt_thumb2"><img class="tt_thumb" src="{{ asset($newshome[$i]->mpath . '/140x106_crop/'. $newshome[$i]->mname) }}" align="left"/></div>
+									<div class="content2">
+										<p><a href="{{ $newshome[$i]->url() }}" title="{{ $newshome[$i]->title }}">{{ $newshome[$i]->title }}<br/></a></p>
+										<p class="date"><span >[{{ date("H:i - d/m/Y",strtotime($newshome[$i]->created_at)) }}]</span></p>
+									</div>
+								</div>
+							@endfor
+						@endif
 
 						<ul style="margin:0; float:left; padding:5px;;">
-							<li class="link"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Lễ kỉ niệm 40 năm quốc khánh CHDCNN Lào</a></li>
-							<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Chào mừng thành công Đại hội đại biểu Đảng bộ tỉnh.</a></li>
-							<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Trường Đại học Tân Trào tiếp nhận học sinh Lào</a></li>
+							@if(count($newshome) > 0)
+								@for ($i = 2; $i < count($newshome); $i++)
+									<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="{{ $newshome[$i]->url() }}" title="{{ $newshome[$i]->title }}" style="color:#666;">{{ $newshome[$i]->title }}</a></li>
+								@endfor
+							@endif
 						</ul>
 					</div>
 				</div><!--tintuc_div-->
@@ -97,24 +101,23 @@
 								<span><a href="#">Thủ tục hành chính</a></span>
 							</p>
 						</div>
-						<div class="tin01">
-							<div class="tt_thumb2"><img class="tt_thumb" src="{{ asset('assets/img/thumb2.png') }}" align="left"/></div>
-							<div class="content2">
-								<p><a href="#">Sở ngoại vụ tổ chức hội nghị tổng kết công tác năm 2015 triển khai nhiệm vụ năm 2016<br/></a></p>
-								<p class="date"><span >[17/03/2016]</span></p>
-							</div>
-						</div>
-						<div class="tin01">
-							<div class="tt_thumb2"><img class="tt_thumb" src="{{ asset('assets/img/thumb2.png') }}" align="left"/></div>
-							<div class="content2">
-								<p><a href="#">Sở ngoại vụ tổ chức hội nghị tổng kết công tác năm 2015 triển khai nhiệm vụ năm 2016<br/></a></p>
-								<p class="date"><span >[17/03/2016]</span></p>
-							</div>
-						</div>
+						@if(count($overseas) > 0)
+							@for ($i = 0; $i <= 1; $i++)
+								<div class="tin01">
+									<div class="tt_thumb2"><img class="tt_thumb" src="{{ asset($overseas[$i]->mpath . '/140x106_crop/'. $overseas[$i]->mname) }}" align="left"/></div>
+									<div class="content2">
+										<p><a href="{{ $overseas[$i]->url() }}" title="{{ $overseas[$i]->title }}">{{ $overseas[$i]->title }}<br/></a></p>
+										<p class="date"><span >[{{ date("H:i - d/m/Y",strtotime($overseas[$i]->created_at)) }}]</span></p>
+									</div>
+								</div>
+							@endfor
+						@endif
 						<ul style="margin:0; float:left; padding:5px;;">
-							<li class="link"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Lễ kỉ niệm 40 năm quốc khánh CHDCNN Lào</a></li>
-							<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Chào mừng thành công Đại hội đại biểu Đảng bộ tỉnh.</a></li>
-							<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Trường Đại học Tân Trào tiếp nhận học sinh Lào</a></li>
+							@if(count($overseas) > 0)
+								@for ($i = 2; $i < count($overseas); $i++)
+									<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="{{ $overseas[$i]->url() }}" title="{{ $overseas[$i]->title }}" style="color:#666;">{{ $overseas[$i]->title }}</a></li>
+								@endfor
+							@endif
 						</ul>
 					</div>
 				</div><!--tintuc_div-->
@@ -133,18 +136,23 @@
 								<span><a href="#">Cơ chế chính sách</a></span>
 							</p>
 						</div>
+						<?php
+						$topInt = $international->first();
+						?>
 						<div class="tin1" style="padding:0;">
-							<div class="col-md-3 tt_thumb2"><img src="{{ asset('assets/img/thumb3.png') }}"/></span></div>
+							<div class="col-md-3 tt_thumb2"><img src="{{ asset($topInt->mpath . '/235x178_crop/'. $topInt->mname) }}"/></span></div>
 							<div class="col-md-8 content" style="margin-left:45px;">
-								<a class="title_left" href="#">Năm học 2015-2016 triển khai ứng dụng phần mềm quản lý học sinh vnEdu cho tất cả các cấp học.</a>
-								<span>Mối quan hệ hợp tác hữu nghị giữa tỉnh Tuyên Quang và tỉnh Xiêng Khoảng được bắt nguồn nhân chuyến thăm và làm việc của đoàn đại biểu tỉnh Xiêng Khoảng nước Cộng hòa dân chủ nhân dân Lào do đồng chí U-thên Ma Sý Xôn Xay, Phó bí thư Tỉnh ủy, Trưởng Ban Tổ chức tỉnh Xiêng Khoảng làm Trưởng đoàn, đã đến thăm và làm việc tại tỉnh Tuyên Quang từ ngày 11 – 14/3/2012</span>
+								<a class="title_left" href="{{ $topInt->url() }}" title="{{ $topInt->title }}">{{ $topInt->title }}</a>
+								<span>{{$topInt->excerpt}}</span>
 							</div>
 						</div><!--tin--->
 					</div>
-					<ul style="margin:0; float:left; padding:5px;;">
-						<li class="link"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Lễ kỉ niệm 40 năm quốc khánh CHDCNN Lào</a></li>
-						<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Chào mừng thành công Đại hội đại biểu Đảng bộ tỉnh Tuyên Quang </a></li>
-						<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Chào mừng thành công Đại hội đại biểu Đảng bộ tỉnh Tuyên Quang </a></li>
+					<ul style="margin:0; float:left; padding:5px;">
+						@foreach($international as $key => $int)
+							@if($key > 0)
+								<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="{{$int->url()}}" title="{{$int->title}}" style="color:#666;">{{$int->title}}</a></li>
+							@endif
+						@endforeach
 					</ul>
 				</div>
 			</div>
