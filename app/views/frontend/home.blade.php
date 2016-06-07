@@ -107,7 +107,7 @@
 									<div class="tt_thumb2"><img class="tt_thumb" src="{{ asset($overseas[$i]->mpath . '/140x106_crop/'. $overseas[$i]->mname) }}" align="left"/></div>
 									<div class="content2">
 										<p><a href="{{ $overseas[$i]->url() }}" title="{{ $overseas[$i]->title }}">{{ $overseas[$i]->title }}<br/></a></p>
-										<p class="date"><span >[{{ date("H:i - d/m/Y",strtotime($overseas[$i]->created_at)) }}]</span></p>
+										<p class="date"><span >[{{ date("d/m/Y",strtotime($overseas[$i]->created_at)) }}]</span></p>
 									</div>
 								</div>
 							@endfor
@@ -179,36 +179,29 @@
 				<div class="col-md-5 tintuc_div_left">
 					<div class="tt_item">
 						<div class="tab line_text2"><span class="tit_underline">dự án fngo</span></div>
-						<img class="tt_thumb" src="{{ asset('assets/img/thumb2.png') }}" align="left"/>
-						<a href="#">Đoàn công tác Vụ Hợp tác quốc tế – Bộ Y tế đến thăm và làm việc<br/>
-							<span style="color:#999999;">[17/07/2015]</span>
-						</a>
-						<img class="tt_thumb" src="{{ asset('assets/img/thumb2.png') }}" align="left"/>
-						<a href="#">Đoàn công tác Vụ Hợp tác quốc tế – Bộ Y tế đến thăm và làm việc<br/>
-							<span style="color:#999999;">[27/05/2015]</span>
-						</a>
-						<img class="tt_thumb" src="{{ asset('assets/img/thumb2.png') }}" align="left"/>
-						<a href="#">Đoàn công tác Vụ Hợp tác quốc tế – Bộ Y tế đến thăm và làm việc<br/>
-							<span style="color:#999999;">[27/05/2015]</span>
-						</a>
-
+						@if(count($fngo) > 0)
+							@foreach($fngo as $key => $fngo)
+							<img class="tt_thumb" src="{{ asset($fngo->mpath . '/140x106_crop/'. $fngo->mname) }}" align="left"/>
+							<a href="{{$fngo->url()}}" title="{{$fngo->title}}">{{$fngo->title}}<br/>
+								<span style="color:#999999;">{{ date("d/m/Y",strtotime($fngo->created_at)) }}</span>
+							</a>
+							@endforeach
+						@endif
 					</div>
 				</div><!--tintuc_div-->
 				<div class="col-md-5 tintuc_div_left2">
 					<div class="tt_item">
 						<div class="tab line_text2"><span class="tit_underline">dự án FDI</span></div>
-						<img class="tt_thumb" src="{{ asset('assets/img/thumb2.png') }}" align="left"/>
-						<a href="#">Đoàn công tác Vụ Hợp tác quốc tế – Bộ Y tế đến thăm và làm việc<br/>
-							<span style="color:#999999;">[17/07/2015]</span>
-						</a>
-						<img class="tt_thumb" src="{{ asset('assets/img/thumb2.png') }}" align="left"/>
-						<a href="#">Đoàn công tác Vụ Hợp tác quốc tế – Bộ Y tế đến thăm và làm việc<br/>
-							<span style="color:#999999;">[27/05/2015]</span>
-						</a>
-						<img class="tt_thumb" src="{{ asset('assets/img/thumb2.png') }}" align="left"/>
-						<a href="#">Đoàn công tác Vụ Hợp tác quốc tế – Bộ Y tế đến thăm và làm việc<br/>
-							<span style="color:#999999;">[27/05/2015]</span>
-						</a>
+
+						@if(count($fdi) > 0)
+							@foreach($fdi as $key => $fdi)
+								<img class="tt_thumb" src="{{ asset($fdi->mpath . '/140x106_crop/'. $fdi->mname) }}" align="left"/>
+								<a href="{{$fdi->url()}}" title="{{$fdi->title}}">{{$fdi->title}}<br/>
+									<span style="color:#999999;">{{ date("d/m/Y",strtotime($fdi->created_at)) }}</span>
+								</a>
+							@endforeach
+						@endif
+
 
 					</div>
 				</div><!--tintuc_div-->

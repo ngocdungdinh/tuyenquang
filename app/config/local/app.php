@@ -75,6 +75,8 @@ return array(
 		'TIN_TUC_SU_KIEN'	=>	'1097',
 		'LANH_SU_VIET_KIEU'	=>	'1084',
 		'HOP_TAC_QUOC_TE'	=>	'1001',
+		'DU_AN_FNGO'		=>	'1004',
+		'DU_AN_FDI'			=>	'1004',
 	),
 
 );

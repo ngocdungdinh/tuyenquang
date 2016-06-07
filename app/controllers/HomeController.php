@@ -86,7 +86,7 @@ class HomeController extends BaseController {
 			->join('medias', 'medias.id', '=', 'posts.media_id')
 			->where('post_type', 'post')
 			->where('status', 'published')
-			->where('category_id', $homefolder['GIOI_THIEU_TINH']) //new category id
+			->where('category_id', $homefolder['GIOI_THIEU_TINH']) //category id
 			->orderBy('created_at', 'DESC')->take(3)->get();
 
 		//tin tuc & su kien
@@ -94,7 +94,7 @@ class HomeController extends BaseController {
 			->join('medias', 'medias.id', '=', 'posts.media_id')
 			->where('post_type', 'post')
 			->where('status', 'published')
-			->where('category_id', $homefolder['GIOI_THIEU_TINH']) //new category id
+			->where('category_id', $homefolder['GIOI_THIEU_TINH']) //category id
 			->orderBy('created_at', 'DESC')->take(5)->get();
 
 		//lanh su - viet kieu
@@ -102,7 +102,7 @@ class HomeController extends BaseController {
 			->join('medias', 'medias.id', '=', 'posts.media_id')
 			->where('post_type', 'post')
 			->where('status', 'published')
-			->where('category_id', $homefolder['LANH_SU_VIET_KIEU']) //new category id
+			->where('category_id', $homefolder['LANH_SU_VIET_KIEU']) //category id
 			->orderBy('created_at', 'DESC')->take(5)->get();
 
 		//hop tac quoc te
@@ -110,10 +110,26 @@ class HomeController extends BaseController {
 			->join('medias', 'medias.id', '=', 'posts.media_id')
 			->where('post_type', 'post')
 			->where('status', 'published')
-			->where('category_id', $homefolder['GIOI_THIEU_TINH']) //new category id
+			->where('category_id', $homefolder['GIOI_THIEU_TINH']) //category id
 			->orderBy('created_at', 'DESC')->take(4)->get();
 		//var_dump('<pre>',$this->data['international']->first());exit;
-			
+
+		//du an FNGO
+		$this->data['fngo'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
+			->join('medias', 'medias.id', '=', 'posts.media_id')
+			->where('post_type', 'post')
+			->where('status', 'published')
+			->where('category_id', $homefolder['DU_AN_FNGO']) //category id
+			->orderBy('created_at', 'DESC')->take(3)->get();
+
+		//du an FDI
+		$this->data['fdi'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
+			->join('medias', 'medias.id', '=', 'posts.media_id')
+			->where('post_type', 'post')
+			->where('status', 'published')
+			->where('category_id', $homefolder['DU_AN_FDI']) //category id
+			->orderBy('created_at', 'DESC')->take(3)->get();
+
 		return View::make('frontend/home', $this->data);
 	}
 
