@@ -306,8 +306,8 @@ Sửa tin ::
 							<div style="color: #ba251e"><strong>Bắt buộc:</strong> tick chọn <span class="glyphicon glyphicon-flag"></span> để làm chuyên mục chính cho bài viết</div>
 							<div id="category-list" style="height: 400px; overflow-y: auto; border: 5px solid #ededed; padding: 5px;">
 								@foreach($categories as $category)
-									{{--@if($category->parent_id == 0)--}}
-										@if(array_get($userPermissions, 'category.c'.$category->id) === 1 && $category->id != 79)
+									@if($category->parent_id == 0)
+										{{--@if(array_get($userPermissions, 'category.c'.$category->id) === 1 && $category->id != 79)--}}
 											<div class="checkbox">
 											  <label class="scat category-id-{{ $category->id }} {{ $category->id == $post->category_id ? 'active' : '' }}" id="category-id-{{ $category->id }}">
 											    <input name="categories[]" type="checkbox" value="{{ $category->id}}" {{ in_array($category->id, $catIds) ? 'checked="checked"' : ''}}> <strong>{{ $category->name}} </strong>
@@ -329,8 +329,8 @@ Sửa tin ::
 												  </label>
 												</div>
 											@endforeach
-										@endif
-									{{--@endif--}}
+										{{--@endif--}}
+									@endif
 								@endforeach
 							</div>
 						</div>
