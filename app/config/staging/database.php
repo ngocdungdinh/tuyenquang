@@ -52,18 +52,16 @@ return array(
 			'prefix'   => '',
 		),
 
-		'mysql' => array(
-			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'plxh',
-			'username'  => 'plxh',
-			// 'username'  => 'root',
-			// 'password'  => 'plxhdb1245',
-			'password'  => 'nJXd2pf3ZPqEaGKY',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-		),
+        'mysql' => array(
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'tuyenquangdfa',
+            'username'  => 'root',
+            'password'  => '@tQdFaVN2016r2nd0mp255:',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',
