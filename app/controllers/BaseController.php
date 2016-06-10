@@ -33,7 +33,7 @@ class BaseController extends Controller {
 		// $this->data['categories'] = Category::where('showon_menu', '>', 0)->orderBy('showon_menu', 'ASC')->get();
 		$this->data['categories'] = Category::where('status', 'on')->where('showon_position', 1)->orderBy('showon_menu', 'ASC')->get();
 
-		$this->data['sidebarcate'] = Category::where('status', 'on')->where('showon_position', 0)->orderBy('showon_menu', 'ASC')->get();
+		$this->data['sidebarcate'] = Category::where('status', 'on')->where('showon_position', 2)->orderBy('showon_menu', 'ASC')->get();
 			
 		$this->data['u'] = $this->u = Sentry::check() ? Sentry::getUser() : null;
 		//

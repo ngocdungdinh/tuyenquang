@@ -222,11 +222,11 @@
 
 			<div class="list_right2">
 				<ul style="margin:0; float:left; padding:5px;">
-					<li class="link"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Giới thiệu tỉnh Tuyên Quang</a></li>
-					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Giới thiệu Sở Ngoại vụ</a></li>
-					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Văn bản pháp quy</a></li>
-					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Thông tin đối ngoại</a></li>
-					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Thông tin đoàn</a></li>
+					@foreach($sidebarcate as $sidemenu)
+						@if($sidemenu->parent_id == 0)
+						<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="{{ route('view-category', $sidemenu->slug) }}">{{ $sidemenu->name }}</a></li>
+						@endif
+					@endforeach
 					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Liên kết web</a></li>
 					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Thư viện ảnh</a></li>
 					<li class="link_1"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Liên hệ</a></li>
