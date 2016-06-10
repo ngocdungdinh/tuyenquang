@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '127.0.0.1',
-			'database'  => 'giadinhnho',
+			'host'      => 'localhost',
+			'database'  => 'tuyenquangdfa',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => '@tQdFaVN2016r2nd0mp255:',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

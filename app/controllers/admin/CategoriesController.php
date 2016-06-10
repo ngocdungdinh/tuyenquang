@@ -184,6 +184,7 @@ class CategoriesController extends AdminController {
 		$category->parent_id        = e(Input::get('parent_id'));
 		$category->showon_menu      = e(Input::get('showon_menu'));
 		$category->showon_homepage  = e(Input::get('showon_homepage'));
+		$category->showon_position  = e(Input::get('showon_position'));
 		$category->status           = e(Input::get('status'));
 
 		// Was the news post updated?
@@ -195,7 +196,8 @@ class CategoriesController extends AdminController {
 			$seo->updateFromInput();
 
 			// Redirect to the new news category page
-			return Redirect::to("admin/categories/$catId/edit")->with('success', Lang::get('admin/categories/message.update.success'));
+			//return Redirect::to("admin/categories/$catId/edit")->with('success', Lang::get('admin/categories/message.update.success'));
+			return Redirect::to("admin/categories/")->with('success', Lang::get('admin/categories/message.update.success'));
 		}
 
 		// Redirect to the categories category management page

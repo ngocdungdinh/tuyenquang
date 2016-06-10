@@ -22,6 +22,7 @@ class NewsController extends BaseController {
 		$last_week = $curr_time->modify('-'.Config::get('app.backdays').' day');
 
 		$this->data['category'] = $this->data['parent_category'] = $category = Category::where('slug', $catSlug)->first();
+		$this->data['subcate'] = $category->subscategories;
 
 		if($category->parent_id != 0)
 			$this->data['parent_category'] = Category::find($category->parent_id);

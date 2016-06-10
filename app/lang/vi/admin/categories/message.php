@@ -15,17 +15,17 @@ return array(
 
 	'create' => array(
 		'error'   => 'Có lỗi xảy ra trong quá trình đăng. Hãy thử lại.',
-		'success' => 'Tạo bài viết thành công.'
+		'success' => 'Tạo dữ liệu thành công.'
 	),
 
 	'update' => array(
 		'error'   => 'Có lỗi xảy ra trong quá trình sửa. Hãy thử lại.',
-		'success' => 'Cập nhật bài viết thành công.'
+		'success' => 'Cập nhật dữ liệu thành công.'
 	),
 
 	'delete' => array(
 		'error'   => 'Có lỗi xảy ra trong quá trình xóa. Hãy thử lại.',
-		'success' => 'Xóa bài viết thành công.'
+		'success' => 'Xóa dữ liệu thành công.'
 	)
 
 );

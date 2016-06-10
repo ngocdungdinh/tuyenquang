@@ -15,154 +15,110 @@
 {{-- Page content --}}
 @section('content')
 
-<div>
-	<div class="row">
-		<div class="col-sm-6" style="border-right: 1px solid #eeeeee">
-			@if($post->subtitle)
-				<p style="font-weight: bold; color: #888;">{{ $post->subtitle }}</p>
-			@endif
-			<h3 style="color: #ba251e; margin: 4px 0">{{ $post->title }}</h3>	
-			<div style="overflow: hidden; padding: 10px 0;">
-				<span class="moment-date pull-left">{{ date("H:i - d/m/Y",strtotime($post->publish_date)) }}</span>
-				<span class="pull-right hidden-xs">		
-					@include('frontend/news/frags/sharebox')
-				</span>
-			</div>
-			<div class="post-body">			
-				<p class="news-content-excerpt"><strong>{{ $post->excerpt }}</strong></p>
-				@if($post->relate_posts)
-					@foreach($post->relates() as $pr)
-						<p class="relate-post" style="line-height: 18px;"><a href="{{ $pr->url() }}">{{ $pr->title }} @include('frontend/news/frags/status')</a></p>
-					@endforeach
-				@endif
-				<p>{{ $post->content }}</p>
-			</div>
-			<div style="margin: 20px 0; overflow: hidden; padding: 12px 10px 8px 10px; border: 1px solid #dddddd" align="center">
-				<span class="pull-left" style="font-size: 18px;"><a href="#news-comments"><i class="fa fa-comments-o"></i> {{ $post->comment_count }} Bình luận</a></span>
-				<span class="pull-right">@include('frontend/news/frags/sharebox')</span> 
-			</div>
-			<div class="box-info mg">
-				<h4 class="title-more">
-					Bài cùng chuyên mục
-				</h4>
-				<div class="row">
-					@foreach ($category_posts as $key => $cp)
-						<div class="col-sm-4 col-xs-6 p7 {{ $key == 2 ? ' hidden-xs' : '' }}">
-							<a href="{{ $cp->url() }}" title="{{ $cp->title }}">
-								@if($cp->mtype == 'video')
-									<span class="video-thumb">
-										<img class="img-responsive full-width" src="{{ asset('http://i.ytimg.com/vi/'. $cp->mname.'/0.jpg') }}" />
-										<span class="play-icon small"><i class="ion-play"></i></span>
-									</span>
-								@elseif($cp->mtype == 'image')
-									<img src="{{ asset($cp->mpath . '/200x130_crop/'. $cp->mname) }}" width="100%" />
-								@endif
-							</a>
-							<h5 class="link-title"><a href="{{ $cp->url() }}" title="{{ $cp->title }}">{{ $cp->title }} {{ $cp->has_picture ? '<i class="ion-images fa-red"></i>' : '' }} {{ $cp->has_video ? '<i class="ion-videocamera fa-red"></i>' : '' }}</a></h5>
-						</div>
-					@endforeach
-				</div>
-			</div>
-			@if($post_tags->count())
-			<div class="news-tags">
-				<strong>Tags:</strong> 
-					@foreach( $post_tags as $tag )
-						<a class="tags_link" href="{{ URL::to('tags/'.$tag->slug) }}">{{ $tag->name }}</a> 
-					@endforeach
-			</div>
-			<hr />
-			@endif
-			<div class="box-info mg">
-				<ul class="nav nav-tabs nav-justified top-most-item">
-					<li class="active"><a href="#news-comments" data-toggle="tab" style="background-color: #f6f6f6"><i class="fa fa-comments-o"></i> Bình luận ({{ $post->comment_count }})</a></li>
-					<li><a href="#facebook-comments" data-toggle="tab" style="background-color: #f6f6f6">Facebook</a></li>
-				</ul>
-				<div class="tab-content">
-					<div class="tab-pane active" id="news-comments">
-						<input type="hidden" id="currPostId" value="{{ $post->id }}">
-						<div id="commentList">
-							<div align="center"><img src="/assets/img/ajax-loader.gif" /></div>
-						</div>
-					</div>
-					<div class="tab-pane" id="facebook-comments">
-						<div class="fb-comments" data-href="{{ $post->url() }}" data-numposts="10" data-width="658"></div>
-					</div>
-				</div>
-			</div>
-			<div class="box-info mg">
-				<hr />
-				<h4 class="title-more">
-					Tiêu điểm
-				</h4>
-				<div class="row">
-					@foreach ($popular_posts as $key => $cp)
-						<div class="{{ $key%3 == 0 ? ' col-xs-12' : ' col-xs-6' }}">
-							<a href="{{ $cp->url() }}" title="{{ $cp->title }}">
-								@if($cp->mtype == 'video')
-									<span class="video-thumb">
-										<img class="img-responsive full-width" src="{{ asset('http://i.ytimg.com/vi/'. $cp->mname.'/0.jpg') }}" />
-										<span class="play-icon small"><i class="ion-play"></i></span>
-									</span>
-								@elseif($cp->mtype == 'image')
-									<img src="{{ asset($cp->mpath . '/'.($key%3 == 0 ? '500x300_crop' : '320x210_crop').'/'. $cp->mname) }}" width="100%" />
-								@endif</a>
-							<h5 class="link-title" style="{{ $key%3 == 0 ? '' : 'height:60px;' }}"><a href="{{ $cp->url() }}" title="{{ $cp->title }}">{{ $cp->title }} {{ $cp->has_picture ? '<i class="ion-images fa-red"></i>' : '' }} {{ $cp->has_video ? '<i class="ion-videocamera fa-red"></i>' : '' }}</a></h5>
-							<p style="margin-bottom: 14px; {{ $key%3 == 0 ? '' : ' display:none;' }}">{{ Str::words($cp->excerpt, 50) }}</p>
-						</div>
-					@endforeach
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-6">
+	<div class="row mix_content">
+		<!---------------------------------------------- left content-------------------------------------------------->
+		<div class="col-md-8 left-content">
 			<div class="row">
-				<div class="col-sm-5 hidden-xs p7">
-					<div class="box-stitle">ĐỌC NHIỀU</div>
-					<div class="list-news">
-						@foreach($mostview_post as $key => $post)
-							@if($key < 2)
-								<div class="news-item">
-									<a href="{{ $post->url() }}" title="{{ $post->title }}">
-										@if($post->mtype == 'video')
-											<span class="video-thumb">
-												<img class="img-responsive full-width" src="{{ asset('http://i.ytimg.com/vi/'. $post->mname.'/0.jpg') }}" />
-												<span class="play-icon small"><i class="ion-play"></i></span>
-											</span>
-										@elseif($post->mtype == 'image')
-											<img class="img-responsive full-width" src="{{ asset($post->mpath . '/320x210_crop/'. $post->mname) }}" width="100%" />
-										@endif
-									</a>
-									<h5 class="link-title"><a href="{{ $post->url() }}" title="{{ $post->title }}">{{ $post->title }} {{ $post->has_picture ? '<i class="ion-images fa-red"></i>' : '' }} {{ $post->has_video ? '<i class="ion-videocamera fa-red"></i>' : '' }}</a></h5>
-								</div>
-							@elseif($key >= 2)
-								<div class="news-item">
-									<h6 class="link-title"><a href="{{ $post->url() }}" title="{{ $post->title }}">{{ $post->title }} {{ $post->has_picture ? '<i class="ion-images fa-red"></i>' : '' }} {{ $post->has_video ? '<i class="ion-videocamera fa-red"></i>' : '' }}</a></h6>
-								</div>
-							@endif
-						@endforeach
+				<div class="col-md-7 contact">
+					<div class="tab line_text2">
+						<span class="tit_underline" style="margin-left:10px">TIN TỨC & SỰ KIỆN</span>
 					</div>
-					<div class="sidestick-container">
-		        		@if(isset($featured_tags))
-							<div class="box-stitle" style="margin-top: 20px; margin-bottom: 0">CHỦ ĐỀ NÓNG</div>
-							<div style="padding: 10px; background-color: #eeeeee">
-		        				@foreach($featured_tags as $ht)
-		        					<a href="/tags/{{ $ht->slug }}"><img class="img-responsive full-width" src="{{ asset($ht->mpath . '/200x130_crop/'. $ht->mname) }}" /></a>
-		        					<a href="/tags/{{ $ht->slug }}" style="color: #000000; display: block; padding: 7px 0 14px 0">{{ $ht->name }}</a>
-		        				@endforeach
+					<div class="top-content">
+						<div class="news_detail">
+							<div class="col-md-8 news_detail_text">
+								<div class="item-news-bottom">
+									<div class="news_detail_sub">
+										<a href="#" class="tit3">{{ $post->title }}</a>
+										<div class="col-md-8 ddmmyy">
+											<span style="color:#999;">[{{ date("H:i - d/m/Y",strtotime($post->publish_date)) }}]</span>
+										</div>
+										<p class="news-content-excerpt"><strong>{{ $post->excerpt }}</strong></p>
+										<p>{{ $post->content }}</p>
+									</div>
+
+									<div class="news_detail_sub" style="margin-top:20px;">
+										<a href="#" class="tit3"><i>Bài viết khác</i></a>
+										<ul style="margin:0; float:left; padding:5px;">
+											@foreach ($category_posts as $key => $cp)
+												<li class="link"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="{{ $cp->url() }}" title="{{ $cp->title }}" style="color:#666;">{{ $cp->title }}</a></li>
+											@endforeach
+											{{--<li class="link"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Liên hiệp các tổ chức hữu nghị tỉnh Tuyên Quang làm việc với Liên hiệp các Tổ chức hữu nghị Việt Nam</a></li>--}}
+											{{--<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Đoàn đại biểu Liên hiệp các Tổ chức hữu nghị tỉnh Tuyên Quang thăm và giao lưu hữu nghị tại nước CHDCND Lào</a></li>--}}
+											{{--<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Đoàn đại biểu Liên hiệp các Tổ chức hữu nghị tỉnh Tuyên Quang thăm và giao lưu hữu nghị tại nước CHDCND Lào</a></li>--}}
+											{{--<li class="link invisible-resp"><img src="{{ asset('assets/img/icon_text.png') }}" style="margin:5px;"><a href="#" style="color:#666;">Đoàn đại biểu Liên hiệp các Tổ chức hữu nghị tỉnh Tuyên Quang thăm và giao lưu hữu nghị tại nước CHDCND Lào</a></li>--}}
+										</ul>
+									</div>
+
+								</div>
 							</div>
-						@endif
+						</div>
 					</div>
 				</div>
-				<div class="col-sm-7 p7">
-					@if($parent_category)
-						@foreach($parent_category->widgetsByPosition('right') as $w)
-							{{ SWidget::getView($w) }}
-						@endforeach
-					@endif
+			</div><!--row-->
+		</div>
+		<!---------------------------------------------------end left------------------------------------------------------------->
+
+		<div class="col-md-3 right-content">
+			<div class="tintuc_div_right">
+				<div class="tab line_text1a"><span class="tit_underline">Video về Tuyên Quang</span></div>
+				<div class="clip"><iframe width="560" height="315" src="https://www.youtube.com/embed/mVPnavjyVGg" frameborder="0" allowfullscreen></iframe></div>
+				<div class="clip_ul">
+					<li><a href="#" style="color:#666;">Giới thiệu về Tuyên Quang</a></li>
+					<li><a href="#" style="color:#666;">Nét đẹp lễ hội văn hoá Tuyên Quang</a></li>
+					<li><a href="#" style="color:#666;">Lễ hội Thanh Tuyên</a></li>
 				</div>
 			</div>
-		</div>
+
+			<div class="list_right2">
+				<ul style="margin:0; float:left; padding:5px;">
+					<li class="link"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Giới thiệu tỉnh Tuyên Quang</a></li>
+					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Giới thiệu Sở Ngoại vụ</a></li>
+					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Văn bản pháp quy</a></li>
+					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Thông tin đối ngoại</a></li>
+					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"/><a href="#">Thông tin đoàn</a></li>
+					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Liên kết web</a></li>
+					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Thư viện ảnh</a></li>
+					<li class="link_1"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Liên hệ</a></li>
+				</ul>
+			</div>
+
+			<div class="tintuc_div_right">
+				<div class="tt_item">
+					<div class="tab line_text2"><span class="tit_underline">người tuyên quang ở nước ngoài</span></div>
+					<img class="tt_thumb" src="{{ asset('assets/img/thumb5.png') }}" align="left"/>
+					<a href="#" style="text-align:18px;">Việt Nam tham dự Hội nghị Diễn đàn...</br>
+						<span style="color:#999999;">[17/07/2015]</span>
+					</a>
+					<img class="tt_thumb" src="{{ asset('assets/img/thumb5.png') }}" align="left"/>
+					<a href="#" style="text-align:18px;">Việt Nam tham dự Hội nghị Diễn đàn...</br>
+						<span style="color:#999999;">[17/07/2015]</span>
+					</a>
+					<img class="tt_thumb" src="{{ asset('assets/img/thumb5.png') }}" align="left"/>
+					<a href="#" style="text-align:18px;">Việt Nam tham dự Hội nghị Diễn đàn...</br>
+						<span style="color:#999999;">[17/07/2015]</span>
+					</a>
+				</div>
+			</div>
+			<div class="tintuc_div_right">
+				<div class="tt_item">
+					<div class="tab line_text2"><span class="tit_underline">Liên kết website</span></div>
+					<div class="tt_item2">
+						<img src="{{ asset('assets/img/thumbr.png') }}" />
+						<img src="{{ asset('assets/img/r2.png') }}" />
+						<img src="{{ asset('assets/img/r3.png') }}" />
+						<img src="{{ asset('assets/img/r4.png') }}" />
+						<img src="{{ asset('assets/img/r5.png') }}" />
+						<img src="{{ asset('assets/img/r6.png') }}" />
+					</div>
+				</div>
+			</div>
+			<!--
+             <div class="col-md-4 tintuc_div_right">
+                 Ho tro truc tuyen
+             </div> -->
+		</div><!---end right-content---->
+
 	</div>
-</div>
 <script type="text/javascript">
 
 	BB.updateViewCount('{{ $currPostId }}');

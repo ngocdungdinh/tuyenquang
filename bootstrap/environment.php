@@ -1,5 +1,5 @@
 <?php
 
-return 'local';
+return '';
 
 /* End of bootstrap/environment.php */
