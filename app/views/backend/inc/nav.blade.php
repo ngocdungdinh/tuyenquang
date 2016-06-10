@@ -111,21 +111,7 @@
             </ul>
         </li>
         @endif
-        @if ( Permission::has_access('settings', 'appearance'))
-        <li class="treeview {{ (Request::is('admin/widgets*') || Request::is('admin/menus*') || Request::is('admin/sidebars*') ? ' active' : '') }}">
-            <a href="#">
-                <i class="fa fa-magic"></i> <span>Giao diện</span>
-                <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="{{ URL::to('admin/menus') }}" class="{{ (Request::is('admin/menus*') ? ' active' : '') }}"><i class="fa fa-angle-double-right"></i> Menu</a></li>
-                @if(Config::get('app.module.widget'))
-                <li><a href="{{ URL::to('admin/widgets') }}" class="{{ (Request::is('admin/widgets*') ? ' active' : '') }}"><i class="fa fa-angle-double-right"></i> Widget</a></li>
-                @endif
-                <li><a href="{{ URL::to('admin/sidebars') }}" class="{{ (Request::is('admin/sidebars*') ? ' active' : '') }}"><i class="fa fa-angle-double-right"></i> Sidebar</a></li>
-            </ul>
-        </li>
-        @endif
+
         @if ( Permission::has_access('settings', 'config'))
         <li class="treeview {{ (Request::is('admin/settings*') ? ' active' : '') }}">
             <a href="#">
