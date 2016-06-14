@@ -45,7 +45,7 @@
     <div class="container">
         <div class="row logo">
             <img src="{{ asset('assets/img/logo.png') }}" class="img-responsive"/>
-            <span class="lang"><img style="margin-right:5px" src="{{ asset('assets/img/vn.png') }}"/><img src="{{ asset('assets/img/en.png') }}"/></span>
+            {{--<span class="lang"><img style="margin-right:5px" src="{{ asset('assets/img/vn.png') }}"/><img src="{{ asset('assets/img/en.png') }}"/></span>--}}
         </div>
     </div>
 </header>
