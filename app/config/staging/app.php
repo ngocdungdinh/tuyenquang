@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => false,
+	'debug' => true,
 
 	'compress_name' => 'min',
 	'js_ver' => '31',
