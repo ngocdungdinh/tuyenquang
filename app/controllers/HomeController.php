@@ -110,7 +110,7 @@ class HomeController extends BaseController {
 			->join('medias', 'medias.id', '=', 'posts.media_id')
 			->where('post_type', 'post')
 			->where('status', 'published')
-			->where('category_id', $homefolder['GIOI_THIEU_TINH']) //category id
+			->where('category_id', $homefolder['HOP_TAC_QUOC_TE']) //category id
 			->orderBy('created_at', 'DESC')->take(4)->get();
 		//var_dump('<pre>',$this->data['international']->first());exit;
 

@@ -75,12 +75,12 @@ return array(
 	'key' => 'aF3b4DNfT96bRA5idf6c7arsiRjb1GhT',
 
     'homefolder' => array(
-        'GIOI_THIEU_TINH'	=>	'1004',
-        'TIN_TUC_SU_KIEN'	=>	'1097',
-        'LANH_SU_VIET_KIEU'	=>	'1084',
-        'HOP_TAC_QUOC_TE'	=>	'1001',
-        'DU_AN_FNGO'		=>	'1004',
-        'DU_AN_FDI'			=>	'1004',
+        'GIOI_THIEU_TINH'	=>	'7',
+        'TIN_TUC_SU_KIEN'	=>	'7',
+        'LANH_SU_VIET_KIEU'	=>	'7',
+        'HOP_TAC_QUOC_TE'	=>	'7',
+        'DU_AN_FNGO'		=>	'7',
+        'DU_AN_FDI'			=>	'7',
     ),
 
 );

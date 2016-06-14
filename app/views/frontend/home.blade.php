@@ -235,19 +235,15 @@
 
 			<div class="tintuc_div_right">
 				<div class="tt_item">
-					<div class="tab line_text2"><span class="tit_underline">người tuyên quang ở nước ngoài</span></div>
-					<img class="tt_thumb" src="{{ asset('assets/img/thumb5.png') }}" align="left"/>
-					<a href="#" style="text-align:18px;">Việt Nam tham dự Hội nghị Diễn đàn...</br>
-						<span style="color:#999999;">[17/07/2015]</span>
-					</a>
-					<img class="tt_thumb" src="{{ asset('assets/img/thumb5.png') }}" align="left"/>
-					<a href="#" style="text-align:18px;">Việt Nam tham dự Hội nghị Diễn đàn...</br>
-						<span style="color:#999999;">[17/07/2015]</span>
-					</a>
-					<img class="tt_thumb" src="{{ asset('assets/img/thumb5.png') }}" align="left"/>
-					<a href="#" style="text-align:18px;">Việt Nam tham dự Hội nghị Diễn đàn...</br>
-						<span style="color:#999999;">[17/07/2015]</span>
-					</a>
+					<div class="tab line_text2"><span class="tit_underline">Bài viết nổi bật</span></div>
+
+					@foreach ($featured_posts as $featured)
+                        <img class="tt_thumb" src="{{ asset($featured->mpath . '/100x76_crop/'. $featured->mname) }}" alt="{{ $featured->title }}" align="left"/>
+                        <a href="{{ $featured->url() }}" title="{{ $featured->title }}" style="text-align:18px;">{{ $featured->title }}</br>
+                            <span style="color:#999999;">[{{ date("d/m/Y",strtotime($featured->created_at)) }}]</span>
+                        </a>
+					@endforeach
+
 				</div>
 			</div>
 			<div class="tintuc_div_right">

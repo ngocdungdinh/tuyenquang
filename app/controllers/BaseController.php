@@ -34,6 +34,14 @@ class BaseController extends Controller {
 		$this->data['categories'] = Category::where('status', 'on')->where('showon_position', 1)->orderBy('showon_menu', 'ASC')->get();
 
 		$this->data['sidebarcate'] = Category::where('status', 'on')->where('showon_position', 2)->orderBy('showon_menu', 'ASC')->get();
+
+        //right block featured posts
+        $this->data['featured_posts'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
+            ->join('medias', 'medias.id', '=', 'posts.media_id')
+            ->where('post_type', 'post')
+            ->where('status', 'published')
+            ->where('is_featured', 1)
+            ->orderBy('created_at', 'DESC')->take(5)->get();
 			
 		$this->data['u'] = $this->u = Sentry::check() ? Sentry::getUser() : null;
 		//
@@ -49,7 +57,7 @@ class BaseController extends Controller {
 	{
 		if ( ! is_null($this->layout))
 		{
-			$this->layout = View::make($this->layout);
+			$this->layout = View::make($this->layout, $this->data);
 		}
 	}
 

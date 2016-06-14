@@ -105,9 +105,6 @@
                 @if ( Sentry::getUser()->hasAnyAccess(['statistic','statistic.news']))
                     <li><a href="{{ URL::to('admin/news/statistics') }}" class="{{ (Request::is('admin/news/statistics*') ? ' active' : '') }}"><i class="fa fa-angle-double-right"></i>  Bài viết</a></li>
                 @endif
-                @if ( Sentry::getUser()->hasAnyAccess(['statistic','statistic.royalty']))
-                    <li><a href="{{ URL::to('admin/royalties') }}" class="{{ (Request::is('admin/royalties*') ? ' active' : '') }}"><i class="fa fa-angle-double-right"></i>  Nhuận bút</a></li>
-                @endif
             </ul>
         </li>
         @endif
