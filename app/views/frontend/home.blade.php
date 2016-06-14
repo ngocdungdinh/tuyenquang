@@ -136,6 +136,7 @@
 								<span><a href="#">Cơ chế chính sách</a></span>
 							</p>
 						</div>
+						@if(count($overseas) > 0)
 						<?php
 						$topInt = $international->first();
 						?>
@@ -146,6 +147,7 @@
 								<span>{{$topInt->excerpt}}</span>
 							</div>
 						</div><!--tin--->
+						@endif
 					</div>
 					<ul style="margin:0; float:left; padding:5px;">
 						@foreach($international as $key => $int)
