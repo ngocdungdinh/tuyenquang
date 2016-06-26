@@ -6,6 +6,7 @@
 		margin: 0;
 		display: none;
 	}
+	
 }
 @media (max-width: 480px){
 	.quang-cao{ display:none}
@@ -34,6 +35,11 @@
 	.poster img:nth-child(2n){
 		margin-right: 0;
 	}
+	.contact2{
+		padding:5px;
+	}	
+	.lienhe2 input, .lienhe2  textarea{ width:100%}	
+	.left-content{ width:100%}
 }
 @media (max-width: 520px) {
 	.quang-cao{ display:none}

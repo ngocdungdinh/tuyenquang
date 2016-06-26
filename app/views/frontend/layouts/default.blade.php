@@ -55,6 +55,8 @@
 <div class="clearfix row  menu " >
     <div class="container nav" id="menu">
         <ul class="navbar-nav">
+            <li class="col-md-2 menu-item"><a href="./" class="linebr">Trang chủ</a></li>
+            <li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>
             @foreach($categories as $menu)
                 @if($menu->parent_id == 0)
                     <li class="col-md-2 menu-item"><a href="{{ route('view-category', $menu->slug) }}" class="linebr">{{ $menu->name }}</a>
@@ -62,7 +64,7 @@
                             @foreach($categories as $submenu)
                                 @if($submenu->parent_id == $menu->id)
                                     <li>
-                                        <a href="{{ route('view-category', $submenu->slug) }}">{{ $submenu->name }}</a>
+                                        <div class="aresize"><a href="{{ route('view-category', $submenu->slug) }}">{{ $submenu->name }}</a></div>
                                     </li>
                                 @endif
                             @endforeach
