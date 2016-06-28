@@ -35,15 +35,13 @@ class NewsController extends BaseController {
 			return App::abort(404);
 		}
 
-		// Get all the news posts
-		$this->data['featured_posts'] = Post::select('posts.*', 'medias.mpath', 'medias.mtype', 'medias.mname')
-			->join('medias', 'medias.id', '=', 'posts.media_id')
-			->where('post_type', 'post')
-			->where('status', 'published')
-			->where('showon_category', 1)
-			->where('category_id', $category->id)
-			->where('posts.publish_date', '<=', new Datetime())
-			->orderBy('publish_date', 'DESC')->take(7)->get();
+        // Get all the news posts
+        $this->data['featured_posts'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
+            ->join('medias', 'medias.id', '=', 'posts.media_id')
+            ->where('post_type', 'post')
+            ->where('status', 'published')
+            ->where('is_featured', 1)
+            ->orderBy('created_at', 'DESC')->take(5)->get();
 
 		$ids = array(0);
 		foreach ($this->data['featured_posts'] as $key => $value) {

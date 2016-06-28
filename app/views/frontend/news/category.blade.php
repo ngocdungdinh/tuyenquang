@@ -75,7 +75,7 @@
                     @endforeach
                     <li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Liên kết web</a></li>
                     <li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Thư viện ảnh</a></li>
-                    <li class="link_1"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Liên hệ</a></li>
+                    <li class="link_1"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="{{route('lien-he')}}">Liên hệ</a></li>
                 </ul>
             </div>
 

@@ -34,15 +34,12 @@ class HomeController extends BaseController {
 //		echo $homefolder['GIOI_THIEU_TINH'];exit;
 		
 		// Get all the news posts
-		$this->data['featured_posts'] = Post::select('posts.*', 'medias.mpath', 'medias.mtype', 'medias.mname')
-			->join('medias', 'medias.id', '=', 'posts.media_id')
-        	->join('posts_position', 'posts_position.post_id', '=', 'posts.id')
-			->where('posts_position.type', 'home')
-			->where('post_type', 'post')
-			->where('status', 'published')
-			->where('posts.publish_date', '<=', new Datetime())
-			->orderBy('posts_position.position', 'ASC')
-			->take(Config::get('settings.featured_posts', 12))->get();
+        $this->data['featured_posts'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
+            ->join('medias', 'medias.id', '=', 'posts.media_id')
+            ->where('post_type', 'post')
+            ->where('status', 'published')
+            ->where('is_featured', 1)
+            ->orderBy('created_at', 'DESC')->take(5)->get();
 
 		// fast news
 		$this->data['lastest_posts'] = Post::select('posts.*', 'medias.mpath', 'medias.mtype', 'medias.mname')
@@ -87,6 +84,9 @@ class HomeController extends BaseController {
 			->where('post_type', 'post')
 			->where('status', 'published')
 			->where('category_id', $homefolder['GIOI_THIEU_TINH']) //category id
+            ->orWhere('category_id', $homefolder['GIOI_THIEU_CHUNG'])
+            ->orWhere('category_id', $homefolder['DU_LICH'])
+            ->orWhere('category_id', $homefolder['TIEM_NANG'])
 			->orderBy('created_at', 'DESC')->take(3)->get();
 
 		//tin tuc & su kien
@@ -95,7 +95,11 @@ class HomeController extends BaseController {
 			->where('post_type', 'post')
 			->where('status', 'published')
 			->where('category_id', $homefolder['GIOI_THIEU_TINH']) //category id
+            ->orWhere('category_id', $homefolder['TIN_TRONG_TINH'])
+            ->orWhere('category_id', $homefolder['TIN_TRONG_NUOC'])
+            ->orWhere('category_id', $homefolder['NGHIEN_CUU_PHAN_TICH'])
 			->orderBy('created_at', 'DESC')->take(5)->get();
+        $this->data['newsHomeCate'] = Category::where('id', $homefolder['TIN_TUC_SU_KIEN'])->first();
 
 		//lanh su - viet kieu
 		$this->data['overseas'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
@@ -103,7 +107,10 @@ class HomeController extends BaseController {
 			->where('post_type', 'post')
 			->where('status', 'published')
 			->where('category_id', $homefolder['LANH_SU_VIET_KIEU']) //category id
+            ->orWhere('category_id', $homefolder['LE_TAN_NGOAI_GIAO'])
+            ->orWhere('category_id', $homefolder['THU_TUC_HANH_CHINH'])
 			->orderBy('created_at', 'DESC')->take(5)->get();
+        $this->data['overseasCate'] = Category::where('id', $homefolder['LANH_SU_VIET_KIEU'])->first();
 
 		//hop tac quoc te
 		$this->data['international'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
@@ -111,8 +118,11 @@ class HomeController extends BaseController {
 			->where('post_type', 'post')
 			->where('status', 'published')
 			->where('category_id', $homefolder['HOP_TAC_QUOC_TE']) //category id
+            ->orWhere('category_id', $homefolder['NGOAI_GIAO_KINH_TE'])
+            ->orWhere('category_id', $homefolder['QUAN_HE_VOI_CAC_NUOC'])
+            ->orWhere('category_id', $homefolder['NGOAI_GIAO_VAN_HOA'])
 			->orderBy('created_at', 'DESC')->take(4)->get();
-		//var_dump('<pre>',$this->data['international']->first());exit;
+        $this->data['interCate'] = Category::where('id', $homefolder['HOP_TAC_QUOC_TE'])->first();
 
 		//du an FNGO
 		$this->data['fngo'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')

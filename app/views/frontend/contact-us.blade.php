@@ -8,50 +8,40 @@ Contact us ::
 
 {{-- Page content --}}
 @section('content')
-<div class="page-header">
-	<h3>Liên hệ</h3>
+<div class="row">
+    <div class="contact2">
+        <div class="tab line_text2">
+            <span style="margin:10px 0; color:#015f8a; font-size:16px;">SỞ NGOẠI VỤ TỈNH TUYÊN QUANG</span>
+        </div>
+        <div class="news_detail_sub2">
+            <p>Số 4, Chiến Thắng sông Lô,P. Tân Quang, TP Tuyên Quang</p>
+            <p>Điện thoại:027 3 817 626 - Fax: 027 3 817 133</p>
+            <div class="col-md-5 form1">
+                <ul>
+                <li>
+                    <div class="lienhe1"><span style="text-align:right; margin-right:">Họ tên<span style="color:#ff0000;">*</span></span></div>
+                    <div class="lienhe2"><input style="margin-left:10px;" type="text"/></div>
+                </li>
+                <li>
+                    <div class="lienhe1"><span style="text-align:right; margin-right:">Email<span style="color:#ff0000;">*</span></span></div>
+                    <div class="lienhe2"><input style="margin-left:10px;" type="text"/></div>
+                </li>
+                <li>
+                    <div class="lienhe1"><span style="text-align:right; margin-right:">Tiêu đề<span style="color:#ff0000;">*</span></span></div>
+                    <div class="lienhe2"><input style="margin-left:10px;" type="text"/></div>
+                </li>
+                <li>
+                    <div class="lienhe1"><span style="text-align:right; margin-right:">Nội dung<span style="color:#ff0000;">*</span></span></div>
+                    <div class="lienhe2">
+                        <textarea style="margin-left:10px;"></textarea>
+                    </div>
+                </li>
+                <li><div style="float: left; width:100%; padding-right:30px; margin:10px 0;"><span class="bt1">Gửi</span></div></li>
+                </ul>
+            </div>
+            <div class="col-md-6" id="googleMap" ><img class="map img-resp" src="{{ asset('assets/img/tqmap.png') }}" /></div><!--216-->
+    </div>
+
+     </div>
 </div>
-<div class="well">	
-	<dl class="dl-horizontal">
-	  <dt>Trang chủ: </dt>
-	  <dd><a href="http://binhbeer.com">http://binhbeer.com</a></dd>
-	  <dt>Điện thoại:</dt>
-	  <dd>090.320.1241</dd>
-	  <dt>Email:</dt>
-	  <dd>nightwishx@gmail.com <br />binhbeer@taymay.vn</dd>
-	</dl>
-</div>
-<hr />
-<form method="post" action="" class="form-horizontal" role="form">
-	<!-- CSRF Token -->
-	<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
-	<fieldset>
-		<!-- Name -->
-		<div  class="form-group{{ $errors->first('name', ' has-error') }}">
-			<div class="col-lg-7">
-				<input type="text" id="name" name="name" class="input-block-level form-control" placeholder="Tên bạn">
-				{{ $errors->first('name', '<span class="help-block">:message</span>') }}
-			</div>
-		</div>
-
-		<!-- Email -->
-		<div  class="form-group{{ $errors->first('email', ' has-error') }}">
-			<div class="col-lg-7">
-				<input type="text" id="email" name="email" class="input-block-level form-control" placeholder="Địa chỉ Email">
-				{{ $errors->first('email', '<span class="help-block">:message</span>') }}
-			</div>
-		</div>
-		<!-- Description -->
-		<div  class="form-group{{ $errors->first('description', ' has-error') }}">
-			<div class="col-lg-12">
-				<textarea rows="4" id="description" name="description" class="input-block-level form-control" placeholder="Nội dung"></textarea>
-				{{ $errors->first('description', '<span class="help-block">:message</span>') }}
-			</div>
-		</div>
-
-		<!-- Form actions -->
-		<button type="submit" class="btn btn-warning pull-right">Gửi</button>
-	</fieldset>
-</form>
 @stop

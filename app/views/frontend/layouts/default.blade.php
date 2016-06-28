@@ -37,6 +37,8 @@
     <!--icon turn around-->
     <link rel="stylesheet" href="{{ asset('assets/css/style-turn-around.css') }}">
     <script type="text/javascript" src="{{ asset('assets/js/prefixfree.min.js') }}"></script>
+    <link rel="shortcut icon" href="{{ asset('assets/ico/favicon.png') }}">
+
 </head>
 
 <body>
@@ -55,7 +57,7 @@
 <div class="clearfix row  menu " >
     <div class="container nav" id="menu">
         <ul class="navbar-nav">
-            <li class="col-md-2 menu-item"><a href="./" class="linebr">Trang chủ</a></li>
+            <li class="col-md-2 menu-item"><a href="{{ route('home') }}" class="linebr">Trang chủ</a></li>
             <li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>
             @foreach($categories as $menu)
                 @if($menu->parent_id == 0)

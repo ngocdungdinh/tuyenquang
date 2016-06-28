@@ -60,13 +60,14 @@
 				<div class="col-md-5 tintuc_div_left">
 					<div class="tt_item">
 						<div class="tab line_text2">
-							<p><span class="tit_underline">TIN TỨC & SỰ KIỆN</span></p>
+							<p><span class="tit_underline">{{$newsHomeCate->name}}</span></p>
 							<p class="sub_tab">
-								<span><a href="#">Tin trong tỉnh</a></span>
+							@foreach($newsHomeCate->subscategories as $key => $subCate)
+								<span><a href="{{ route('view-category', $subCate->slug) }}">{{$subCate->name}}</a></span>
+								@if($key <= count($subCate))
 								<span> | </span>
-								<span><a href="#">Tin trong nước</a></span>
-								<span> | </span>
-								<span><a href="#">Tin quốc tế</a></span>
+								@endif
+                            @endforeach
 							</p>
 						</div>
 						@if(count($newshome) > 0)
@@ -94,12 +95,15 @@
 				<div class="col-md-5 tintuc_div_left2">
 					<div class="tt_item">
 						<div class="tab line_text2">
-							<p><span class="tit_underline">LÃNH SỰ - VIỆT KIỀU</span></p>
+							<p><span class="tit_underline">{{$overseasCate->name}}</span></p>
 							<p class="sub_tab">
-								<span><a href="#">Lễ tân ngoại giao</a></span>
-								<span> | </span>
-								<span><a href="#">Thủ tục hành chính</a></span>
-							</p>
+                            @foreach($overseasCate->subscategories as $key => $subCate)
+                                <span><a href="{{ route('view-category', $subCate->slug) }}">{{$subCate->name}}</a></span>
+                                @if($key <= count($subCate))
+                                <span> | </span>
+                                @endif
+                            @endforeach
+                            </p>
 						</div>
 						@if(count($overseas) > 0)
 							@for ($i = 0; $i <= 1; $i++)
@@ -127,16 +131,17 @@
 				<div class="col-md-10 tintuc_div">
 					<div class="tt_item">
 						<div class="tab line_text2">
-							<p><span class="tit_underline">hợp tác quốc tế</span></p>
+							<p><span class="tit_underline">{{$interCate->name}}</span></p>
 							<p class="sub_tab">
-								<span><a href="#">Quan hệ với các nước</a></span>
-								<span> | </span>
-								<span><a href="#">Quan hệ với tổ chức quốc tế</a></span>
-								<span> | </span>
-								<span><a href="#">Cơ chế chính sách</a></span>
-							</p>
+                            @foreach($interCate->subscategories as $key => $subCate)
+                                <span><a href="{{ route('view-category', $subCate->slug) }}">{{$subCate->name}}</a></span>
+                                @if($key <= count($subCate))
+                                <span> | </span>
+                                @endif
+                            @endforeach
+                            </p>
 						</div>
-						@if(count($overseas) > 0)
+						@if(count($international) > 0)
 						<?php
 						$topInt = $international->first();
 						?>
@@ -231,7 +236,7 @@
 					@endforeach
 					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Liên kết web</a></li>
 					<li class="link invisible-resp"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Thư viện ảnh</a></li>
-					<li class="link_1"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="#">Liên hệ</a></li>
+					<li class="link_1"><img src="{{ asset('assets/img/77.png') }}" style="margin:5px;"><a href="{{route('lien-he')}}">Liên hệ</a></li>
 				</ul>
 			</div>
 
