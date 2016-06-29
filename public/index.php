@@ -1,4 +1,5 @@
 <?php
+phpinfo();
 // echo("Hệ thống đang tạm dừng để nâng cấp!");
 // die();
 /**

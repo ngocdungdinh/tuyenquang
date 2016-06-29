@@ -64,7 +64,7 @@ Tải tệp tin ::
 				browse_button : 'pickfiles',
 				file_data_name: "picture",
 				container : 'container-upload',
-				max_file_size : '3mb',
+				max_file_size : '5mb',
 				url : 'upload',
 				flash_swf_url : '{{ asset('assets/js/plupload/plupload.flash.swf') }}',
 				silverlight_xap_url : '{{ asset('assets/js/plupload/plupload.silverlight.xap') }}',
