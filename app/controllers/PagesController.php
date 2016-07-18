@@ -37,4 +37,20 @@ class PagesController extends BaseController {
 		return View::make('frontend/pages/view-page', $this->data);
 	}
 
+	public function getWebLink()
+	{
+		// Get this news post data
+		$this->data['wLink'] = $page = Post::where('id', Config::get('app.page.LIEN_KET_WEB'))->first();
+
+		// Check if the news post exists
+		if (is_null($page))
+		{
+			// If we ended up in here, it means that a page or a news post
+			// don't exist. So, this means that it is time for 404 error page.
+			return App::abort(404);
+			// Show the page
+		}
+		return View::make('frontend/pages/web-link', $this->data);
+	}
+
 }

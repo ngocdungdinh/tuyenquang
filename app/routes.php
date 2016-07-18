@@ -426,6 +426,8 @@ Route::get('rss/{slug}.rss', 'RssController@getRss');
 Route::get('lien-he', array('as' => 'lien-he', 'uses' => 'ContactUsController@getIndex'));
 Route::post('lien-he', 'ContactUsController@postIndex');
 
+Route::get('lien-ket-website', array('as' => 'web-link', 'uses' => 'PagesController@getWebLink'));
+
 Route::post('search', 'HomeController@postSearch');
 Route::get('search/{keyword}', array('before' => 'cache', 'after' => 'cache', 'as' => 'get-search', 'uses' => 'HomeController@getSearch'));
 

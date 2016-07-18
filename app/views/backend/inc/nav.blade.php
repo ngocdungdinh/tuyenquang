@@ -69,6 +69,15 @@
             </a>
         </li>
         @if ( Sentry::getUser()->hasAnyAccess(['pages','pages.full']) )
+            <li class=" {{ (Request::is('admin/pages*') ? ' active' : '') }}">
+                <a href="{{ route('update/page', Config::get('app.page.LIEN_KET_WEB')) }}">
+                    <i class="glyphicon glyphicon-link"></i> <span>Liên kết website</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+            </li>
+        @endif
+
+        @if ( Sentry::getUser()->hasAnyAccess(['pages','pages.full']) )
         <li class="treeview {{ (Request::is('admin/pages*') ? ' active' : '') }}">
             <a href="#">
                 <i class="glyphicon glyphicon-book"></i> <span>Trang thông tin</span>

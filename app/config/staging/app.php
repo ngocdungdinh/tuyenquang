@@ -94,4 +94,8 @@ return array(
         'DU_AN_FDI'			        =>	'22',
     ),
 
+	'page' => array(
+		'LIEN_KET_WEB'				=> '57'
+	),
+
 );
