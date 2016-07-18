@@ -176,9 +176,10 @@ class PagesController extends AdminController {
 		$post->status          	= e(Input::get('status'));
 		$post->post_type        = 'page';
 
-		$post->meta_title       = e(Input::get('meta-title'));
-		$post->meta_description = e(Input::get('meta-description'));
-		$post->meta_keywords    = e(Input::get('meta-keywords'));
+		//$post->meta_title       = e(Input::get('meta-title'));
+		//$post->meta_description = e(Input::get('meta-description'));
+		//$post->meta_keywords    = e(Input::get('meta-keywords'));
+		
 		// Was the page updated?
 		if($post->save())
 		{
