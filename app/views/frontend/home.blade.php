@@ -37,6 +37,78 @@
 	<div class="row mix_content">
 		<!---------------------------------------------- left content-------------------------------------------------->
 		<div class="col-md-9 left-content">
+			<!--carousel{---->
+			<div class="row">
+				<div class="col-md-12 tintuc_div">
+					<div class="tab line_text1">
+						<span class="tit_underline">GIỚI THIỆU TỈNH TUYÊN QUANG</span></div>
+					<div class="button_next">
+						<span style="float:left"><a href="#myCarousel"  data-slide="prev"><img src="{{ asset('assets/img/pre.png') }}"></a></span>
+						<span style="float:left"><a href="#myCarousel" data-slide="next"><img src="{{ asset('assets/img/next.png') }}"></a></span>
+					</div>
+					<div class="col-md-12 tintuc_item inner-left">
+						<div class="text-center">
+							<div class="carousel slide row" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
+
+								<div class="carousel-inner">
+									<div class="item active">
+										<!--<a href="#"><img src="http://placehold.it/500/666/fff&amp;text=1" class="img-responsive"></a>-->
+										<div class="col-md-4 thumnail">
+											<img class="img-resp" src="{{ asset('assets/img/p1.png') }}"/>
+											<div class="title"><a href="#">Các lễ hội đặc sắc ở Tuyên Quang 1</a></div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col-md-4 thumnail">
+											<img class="img-resp" src="{{ asset('assets/img/p1.png') }}"/>
+											<div class="title"><a href="#">Các lễ hội đặc sắc ở Tuyên Quang 2</a></div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col-md-4 thumnail">
+											<img class="img-resp" src="{{ asset('assets/img/p1.png') }}"/>
+											<div class="title"><a href="#">Các lễ hội đặc sắc ở Tuyên Quang 3</a></div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col-md-4 thumnail">
+											<img class="img-resp" src="{{ asset('assets/img/p1.png') }}"/>
+											<div class="title"><a href="#">Các lễ hội đặc sắc ở Tuyên Quang 4</a></div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col-md-4 thumnail">
+											<img class="img-resp" src="{{ asset('assets/img/p1.png') }}"/>
+											<div class="title"><a href="#">Các lễ hội đặc sắc ở Tuyên Quang 5</a></div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col-md-4 thumnail">
+											<img class="img-resp" src="{{ asset('assets/img/p1.png') }}"/>
+											<div class="title"><a href="#">Các lễ hội đặc sắc ở Tuyên Quang 6</a></div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col-md-4 thumnail">
+											<img class="img-resp" src="{{ asset('assets/img/p1.png') }}"/>
+											<div class="title"><a href="#">Các lễ hội đặc sắc ở Tuyên Quang 7</a></div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col-md-4 thumnail">
+											<img class="img-resp" src="{{ asset('assets/img/p1.png') }}"/>
+											<div class="title"><a href="#">Các lễ hội đặc sắc ở Tuyên Quang 8</a></div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div><!--tintuc_div-->
+			<!--}carousel---->
+			<div style="margin-top:10px;"></div>
 			<div class="row">
 				<div class="col-md-12 tintuc_div">
 					<div class="tab line_text1">
@@ -169,16 +241,48 @@
 						<span class="tit_underline">thư viện hình ảnh</span>
 					</div>
 					<div class="button_next">
-						<span style="float:left"><a href="#"><img src="{{ asset('assets/img/pre.png') }}"></a></span>
-						<span style="float:left"><a href="#"><img src="{{ asset('assets/img/next.png') }}"></a></span>
+						<span style="float:left"><a href="#myGallery"  data-slide="prev"><img src="{{ asset('assets/img/pre.png') }}"></a></span>
+						<span style="float:left"><a href="#myGallery"  data-slide="next"><img src="{{ asset('assets/img/next.png') }}"></a></span>
 					</div>
-					<div class="tintuc_item inner-left">
-						<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
-						<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_1.png') }}"/></div>
-						<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_2.png') }}"/></div>
-						<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_1.png') }}"/></div>
-						<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_2.png') }}"/></div>
-						<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+					<div class="carousel2 slide tintuc_item inner-left" data-ride="carousel" data-type="multi" data-interval="3000" id="myGallery">
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="col-md-2 thumnail2 ">1<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">2<img class="img-resp" src="{{ asset('assets/img/thumb4_1.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">3<img class="img-resp" src="{{ asset('assets/img/thumb4_2.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">4<img class="img-resp" src="{{ asset('assets/img/thumb4_1.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">5<img class="img-resp" src="{{ asset('assets/img/thumb4_2.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">6<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">7<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">8<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">9<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">10<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">11<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+							</div>
+							<div class="item">
+								<div class="col-md-2 thumnail2 ">12<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div><!--tintuc_div-->

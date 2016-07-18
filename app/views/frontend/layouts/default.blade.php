@@ -37,6 +37,10 @@
     <!--icon turn around-->
     <link rel="stylesheet" href="{{ asset('assets/css/style-turn-around.css') }}">
     <script type="text/javascript" src="{{ asset('assets/js/prefixfree.min.js') }}"></script>
+    <!--carousel-->
+    <link rel="stylesheet" href="{{ asset('assets/css/blockCarousel.css') }}">
+    <script type="text/javascript" src="{{ asset('assets/js/blockCarousel.js') }}"></script>
+
     <link rel="shortcut icon" href="{{ asset('assets/ico/favicon.png') }}">
 
 </head>

@@ -70,13 +70,29 @@ return array(
 
 	'key' => 'aF3b4DNfT96bRA5idf6c7arsiRjb1GhT',
 
-	'homefolder' => array(
-		'GIOI_THIEU_TINH'	=>	'1004',
-		'TIN_TUC_SU_KIEN'	=>	'1097',
-		'LANH_SU_VIET_KIEU'	=>	'1084',
-		'HOP_TAC_QUOC_TE'	=>	'1001',
-		'DU_AN_FNGO'		=>	'1004',
-		'DU_AN_FDI'			=>	'1004',
+    'homefolder' => array(
+        'GIOI_THIEU_TINH'	        =>	'7',
+        'GIOI_THIEU_CHUNG'	        =>	'24',
+        'DU_LICH'	                =>	'25',
+        'TIEM_NANG'                 =>	'26',
+        'TIN_TUC_SU_KIEN'	        =>	'1',
+        'TIN_TRONG_TINH'	        =>	'12',
+        'TIN_TRONG_NUOC'	        =>	'13',
+        'NGHIEN_CUU_PHAN_TICH'	    =>	'14',
+        'LANH_SU_VIET_KIEU'	        =>	'3',
+        'LE_TAN_NGOAI_GIAO'	        =>	'18',
+        'THU_TUC_HANH_CHINH'	    =>	'19',
+        'HOP_TAC_QUOC_TE'	        =>	'2',
+        'NGOAI_GIAO_KINH_TE'	    =>	'15',
+        'QUAN_HE_VOI_CAC_NUOC'	    =>	'16',
+        'NGOAI_GIAO_VAN_HOA'	    =>	'17',
+        'DU_AN_FNGO'		        =>	'23',
+        'DU_AN_FDI'			        =>	'22',
+    ),
+
+	'page' => array(
+		'LIEN_KET_WEB'				=> '41'
 	),
+
 
 );
