@@ -16,14 +16,14 @@ jQuery(document).ready(function() {
 		}
 	});
 
-	jQuery('.carousel2[data-type="multi"] .item').each(function(){
+	jQuery('#myGallery[data-type="multi"] .item').each(function(){
 		var next = jQuery(this).next();
 		if (!next.length) {
 			next = jQuery(this).siblings(':first');
 		}
 		next.children(':first-child').clone().appendTo(jQuery(this));
 
-		for (var i=0;i<4;i++) {
+		for (var i=0;i<2;i++) {
 			next=next.next();
 			if (!next.length) {
 				next = jQuery(this).siblings(':first');
