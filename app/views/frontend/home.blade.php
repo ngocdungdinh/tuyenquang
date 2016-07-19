@@ -188,40 +188,40 @@
 					<div class="carousel slide tintuc_item inner-left" data-ride="carousel" data-type="multi" data-interval="3000" id="myGallery">
 						<div class="carousel-inner">
 							<div class="item active">
-								<div class="col-md-2 thumnail2 ">1<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">2<img class="img-resp" src="{{ asset('assets/img/thumb4_1.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_1.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">3<img class="img-resp" src="{{ asset('assets/img/thumb4_2.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_2.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">4<img class="img-resp" src="{{ asset('assets/img/thumb4_1.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_1.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">5<img class="img-resp" src="{{ asset('assets/img/thumb4_2.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_2.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">6<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">7<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">8<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">9<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">10<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">11<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
 							</div>
 							<div class="item">
-								<div class="col-md-2 thumnail2 ">12<img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
 							</div>
 						</div>
 					</div>
