@@ -187,11 +187,13 @@
 					</div>
 					<div class="carousel slide tintuc_item inner-left" data-ride="carousel" data-type="multi" data-interval="3000" id="myGallery">
 						<div class="carousel-inner">
-							@foreach($galleries as $key=>$gallery)
+                        @if(count($galleries) > 0)
+                            @foreach($galleries as $key=>$gallery)
 							<div class="item {{$key == 0?'active':''}}">
 								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset($gallery->mpath . '/120x90_crop/'. $gallery->mname) }}"/></div>
 							</div>
 							@endforeach
+                        @endif
 						</div>
 					</div>
 				</div>
