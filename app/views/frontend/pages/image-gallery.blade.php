@@ -38,7 +38,7 @@
                     @foreach($posts as $key => $post)
                         <div class="col-md-4 item1">
                             <a href="#"><div class="it_img ">
-                                    <img src="{{ asset($post->mpath . '/220x170_crop/'. $post->mname) }}" data-big-src='{{ asset($post->mpath . '/'. $post->mname) }}'/>
+                                    <img src="{{ asset($post->mpath . '/220x170_crop/'. $post->mname) }}" data-big-src='{{ asset($post->mpath . '/600x415_crop/'. $post->mname) }}'/>
                                     <p>{{$post->excerpt}}</p>
                                 </div></a>
                             <div class="caption"></div>
