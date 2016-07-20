@@ -438,6 +438,7 @@ Route::get('lien-he', array('as' => 'lien-he', 'uses' => 'ContactUsController@ge
 Route::post('lien-he', 'ContactUsController@postIndex');
 
 Route::get('lien-ket-website', array('as' => 'web-link', 'uses' => 'PagesController@getWebLink'));
+Route::get('thu-vien-hinh-anh', array('as' => 'image-gallery', 'uses' => 'PagesController@getImageGallery'));
 
 Route::post('search', 'HomeController@postSearch');
 Route::get('search/{keyword}', array('before' => 'cache', 'after' => 'cache', 'as' => 'get-search', 'uses' => 'HomeController@getSearch'));

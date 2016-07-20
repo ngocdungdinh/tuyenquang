@@ -53,4 +53,15 @@ class PagesController extends BaseController {
 		return View::make('frontend/pages/web-link', $this->data);
 	}
 
+	public function getImageGallery()
+	{
+		// Get all the news posts
+		$this->data['posts'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
+			->join('medias', 'medias.id', '=', 'posts.media_id')
+			->where('post_type', 'gallery')
+			->where('status', 'published')
+			->orderBy('created_at', 'DESC')->get();
+		return View::make('frontend/pages/image-gallery', $this->data);
+	}
+
 }

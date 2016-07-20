@@ -140,6 +140,13 @@ class HomeController extends BaseController {
 			->where('category_id', $homefolder['DU_AN_FDI']) //category id
 			->orderBy('created_at', 'DESC')->take(3)->get();
 
+		//Image Gallery
+		$this->data['galleries'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')
+			->join('medias', 'medias.id', '=', 'posts.media_id')
+			->where('post_type', 'gallery')
+			->where('status', 'published')
+			->orderBy('created_at', 'DESC')->take(10)->get();
+
 		return View::make('frontend/home', $this->data);
 	}
 

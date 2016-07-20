@@ -187,42 +187,11 @@
 					</div>
 					<div class="carousel slide tintuc_item inner-left" data-ride="carousel" data-type="multi" data-interval="3000" id="myGallery">
 						<div class="carousel-inner">
-							<div class="item active">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
+							@foreach($galleries as $key=>$gallery)
+							<div class="item {{$key == 0?'active':''}}">
+								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset($gallery->mpath . '/120x90_crop/'. $gallery->mname) }}"/></div>
 							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_1.png') }}"/></div>
-							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_2.png') }}"/></div>
-							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_1.png') }}"/></div>
-							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4_2.png') }}"/></div>
-							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
-							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
-							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
-							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
-							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
-							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
-							</div>
-							<div class="item">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset('assets/img/thumb4.png') }}"/></div>
-							</div>
+							@endforeach
 						</div>
 					</div>
 				</div>

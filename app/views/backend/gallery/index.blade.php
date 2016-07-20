@@ -32,7 +32,7 @@
                 @foreach ($posts as $page)
                     <tr>
                         <td>{{ $page->id }}</td>
-                        <td>{{ $page->title }}</td>
+                        <td><img src="{{ asset($page->mpath . '/100x100_crop/'. $page->mname) }}" alt=""></td>
                         <td>{{ $page->created_at->diffForHumans() }}</td>
                         <td>{{ $page->status }}</td>
                         <td>
