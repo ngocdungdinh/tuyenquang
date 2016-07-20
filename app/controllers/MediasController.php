@@ -13,7 +13,7 @@ class MediasController extends AuthorizedController {
 
 	public function postUpload() {
         $rules = array(
-            'picture' => 'image|max:2500|mimes:jpg,jpeg,png'
+            'picture' => 'image|max:10000|mimes:jpg,jpeg,png'
         );
         $validation = Validator::make(Input::all(), $rules);
         if ($validation->fails())
