@@ -167,6 +167,17 @@ Route::group(array('prefix' => 'admin'), function()
 		Route::get('{pageId}/delete', array('as' => 'delete/page', 'uses' => 'Controllers\Admin\PagesController@getDelete'));
 	});
 
+	# Gallery Management
+	Route::group(array('prefix' => 'gallery'), function()
+	{
+		Route::get('/', array('as' => 'gallery', 'uses' => 'Controllers\Admin\GalleryController@getIndex'));
+		Route::get('create', array('as' => 'create/gallery', 'uses' => 'Controllers\Admin\GalleryController@getCreate'));
+		Route::post('create', 'Controllers\Admin\GalleryController@postCreate');
+		Route::get('{pageId}/edit', array('as' => 'update/gallery', 'uses' => 'Controllers\Admin\GalleryController@getEdit'));
+		Route::post('{pageId}/edit', 'Controllers\Admin\GalleryController@postEdit');
+		Route::get('{pageId}/delete', array('as' => 'delete/gallery', 'uses' => 'Controllers\Admin\GalleryController@getDelete'));
+	});
+
 	# Comments Management
 	Route::group(array('prefix' => 'comments'), function()
 	{

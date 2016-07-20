@@ -78,6 +78,21 @@
         @endif
 
         @if ( Sentry::getUser()->hasAnyAccess(['pages','pages.full']) )
+            <li class="treeview {{ (Request::is('admin/pages*') ? ' active' : '') }}">
+                <a href="#">
+                    <i class="glyphicon glyphicon-picture"></i> <span>Thư viện ảnh</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    @if ( Sentry::getUser()->hasAnyAccess(['pages','pages.create']) )
+                        <li><a href="{{ route('create/page') }}" class="{{ (Request::is('admin/pages/create') ? ' active' : '') }}"><i class="fa fa-angle-double-right"></i> Tạo mới</a></li>
+                    @endif
+                    <li><a href="{{ URL::to('admin/gallery') }}" class="{{ (Request::is('admin/gallery') ? ' active' : '') }}"><i class="fa fa-angle-double-right"></i> Danh sách</a></a></li>
+                </ul>
+            </li>
+        @endif
+
+        @if ( Sentry::getUser()->hasAnyAccess(['pages','pages.full']) )
         <li class="treeview {{ (Request::is('admin/pages*') ? ' active' : '') }}">
             <a href="#">
                 <i class="glyphicon glyphicon-book"></i> <span>Trang thông tin</span>
