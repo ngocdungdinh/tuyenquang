@@ -22,7 +22,7 @@ Tải tệp tin ::
 		$(function() {
 			Dropzone.options.mediaUpload = {
 			  paramName: "picture", // The name that will be used to transfer the file
-			  maxFilesize: 3, // MB
+			  maxFilesize: 15, // MB
 			  maxFiles: 5,
 			  parallelUploads: 1,
 			  acceptedFiles: 'image/*',
