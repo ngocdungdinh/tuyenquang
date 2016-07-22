@@ -1,10 +1,6 @@
 <div class="tintuc_div_right">
     <div class="tab line_text1a"><span class="tit_underline">VIDEO VỀ TUYÊN QUANG</span></div>
     <div class="clip"><iframe width="560" height="315" src="https://www.youtube.com/embed/mVPnavjyVGg" frameborder="0" allowfullscreen></iframe></div>
-    <div class="clip_ul">
-        <li><a href="#" style="color:#666;">Giới thiệu về Tuyên Quang</a></li>
-        <li><a href="#" style="color:#666;">Lễ hội Thanh Tuyên</a></li>
-    </div>
 </div>
 
 <div class="list_right2">

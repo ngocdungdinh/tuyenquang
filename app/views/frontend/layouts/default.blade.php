@@ -61,6 +61,7 @@
 <div class="clearfix row  menu " >
     <div class="container nav" id="menu">
         <ul class="navbar-nav">
+            <li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>
             <li class="col-md-2 menu-item"><a href="{{ route('home') }}" class="linebr">Trang chủ</a></li>
             <li ><div class="menuline"><img src="{{ asset('assets/img/line_menu.png') }}"/></div></li>
             @foreach($categories as $menu)
