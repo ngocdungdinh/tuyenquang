@@ -33,12 +33,24 @@
     <div class="tt_item">
         <div class="tab line_text2"><span class="tit_underline">LIÊN KẾT WEBSITE</span></div>
         <div class="tt_item2">
-            <img src="{{ asset('assets/img/thumbr.png') }}" />
-            <img src="{{ asset('assets/img/r2.png') }}" />
-            <img src="{{ asset('assets/img/r3.png') }}" />
-            <img src="{{ asset('assets/img/r4.png') }}" />
-            <img src="{{ asset('assets/img/r5.png') }}" />
-            <img src="{{ asset('assets/img/r6.png') }}" />
+            <a href="http://ipc.tuyenquang.gov.vn/">
+                <img src="{{ asset('assets/img/thumbr.png') }}" />
+            </a>
+            <a href="http://www.baotuyenquang.com.vn/">
+                <img src="{{ asset('assets/img/r2.png') }}" />
+            </a>
+            <a href="http://congbao.tuyenquang.gov.vn/">
+                <img src="{{ asset('assets/img/r3.png') }}" />
+            </a>
+            <a href="http://www.mofa.gov.vn/">
+                <img src="{{ asset('assets/img/r4.png') }}" />
+            </a>
+            <a href="http://www.tuyenquang.gov.vn/">
+                <img src="{{ asset('assets/img/r5.png') }}" />
+            </a>
+            <a href="http://www.chinhphu.vn/">
+                <img src="{{ asset('assets/img/r6.png') }}" />
+            </a>
         </div>
     </div>
 </div>
