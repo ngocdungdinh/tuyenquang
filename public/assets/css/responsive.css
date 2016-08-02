@@ -118,6 +118,7 @@ h1.main-name{
 @media (max-width: 480px){
 .menuline{ visibility:hidden;position:absolute;}
 .lang{ margin-top:0;}
+.head-banner img{ width:100%}
 .ligthbox_wrap{ max-width:75%;}
 .ligthbox_wrap > img{max-height:50%; max-width:50%}
 	.branch-name span{
