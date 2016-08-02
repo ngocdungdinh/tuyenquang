@@ -28,6 +28,8 @@ font-size:13px;
 text-align:center;
 color:#333 !important;
 }
+/*********HEAD**************/
+.head-banner img{ float: right; margin:0 1px}
 /************************MENU*******************/
 .bg_menu.contact, .contact2{
 background-color:#005197;
@@ -506,9 +508,8 @@ margin-bottom:10px;
 margin-left:5px;
 }
 
-.row logo{
-float:left;
-/*width:100%;*/
+.logo{
+    margin:5px;
 }
 
 .slides{

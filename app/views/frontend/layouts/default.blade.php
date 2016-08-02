@@ -67,7 +67,14 @@
 <header>
     <div class="container">
         <div class="row logo">
-            <img src="{{ asset('assets/img/logo.png') }}" class="img-responsive"/>
+            <div class="col-md-6">
+                <img src="{{ asset('assets/img/logo.png') }}" class="img-responsive"/>
+            </div>
+            <div class="col-md-6 head-banner">
+                <img src="{{ asset('assets/img/b4.png') }}" class="img-responsive"/>
+                <img src="{{ asset('assets/img/b3.png') }}" class="img-responsive"/>
+                <img src="{{ asset('assets/img/b2.png') }}" class="img-responsive"/>
+            </div>
             {{--<span class="lang"><img style="margin-right:5px" src="{{ asset('assets/img/vn.png') }}"/><img src="{{ asset('assets/img/en.png') }}"/></span>--}}
         </div>
     </div>
