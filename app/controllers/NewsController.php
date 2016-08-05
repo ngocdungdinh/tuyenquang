@@ -289,14 +289,26 @@ class NewsController extends BaseController {
 			$postTagArr[] = $tag->id;
 		}
 
-		// Get all the news posts
-		$this->data['category_posts'] = $category->rposts()->select('posts.*', 'medias.mpath', 'medias.mname', 'medias.mtype')
-			->join('medias', 'medias.id', '=', 'posts.media_id')
-			->where('status', 'published')
-			->where('post_type', 'post')
-			->where('slug', '!=', $slug)
-			->where('posts.publish_date', '<=', new Datetime())
-			->orderBy('publish_date', 'DESC')->take(3)->get();
+		if($post->category_id !== ''){
+			$post_category = Category::where('id', $post->category_id)->first();
+			$this->data['category_posts'] = $post_category->rposts()->select('posts.*', 'medias.mpath', 'medias.mname', 'medias.mtype')
+				->join('medias', 'medias.id', '=', 'posts.media_id')
+				->where('status', 'published')
+				->where('post_type', 'post')
+				->where('slug', '!=', $slug)
+				->where('posts.publish_date', '<=', new Datetime())
+				->orderBy('publish_date', 'DESC')->take(5)->get();
+		}
+		else{
+			// Get all the news posts
+			$this->data['category_posts'] = $category->rposts()->select('posts.*', 'medias.mpath', 'medias.mname', 'medias.mtype')
+				->join('medias', 'medias.id', '=', 'posts.media_id')
+				->where('status', 'published')
+				->where('post_type', 'post')
+				->where('slug', '!=', $slug)
+				->where('posts.publish_date', '<=', new Datetime())
+				->orderBy('publish_date', 'DESC')->take(5)->get();
+		}
 			
 		if($post->mtype && $post->mtype == 'video') {
 			$this->data['featured_videos'] = Post::select('posts.*', 'medias.mpath', 'medias.mname', 'medias.title as mtitle', 'medias.mtype', 'users.first_name', 'users.last_name', 'users.username', 'users.avatar')
