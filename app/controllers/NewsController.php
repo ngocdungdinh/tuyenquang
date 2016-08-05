@@ -295,7 +295,8 @@ class NewsController extends BaseController {
 				->join('medias', 'medias.id', '=', 'posts.media_id')
 				->where('status', 'published')
 				->where('post_type', 'post')
-				->where('slug', '!=', $slug)
+				//->where('slug', '!=', $slug)
+				->where('posts.id', '!=', $post->id)
 				->where('posts.publish_date', '<=', new Datetime())
 				->orderBy('publish_date', 'DESC')->take(5)->get();
 		}
@@ -305,7 +306,8 @@ class NewsController extends BaseController {
 				->join('medias', 'medias.id', '=', 'posts.media_id')
 				->where('status', 'published')
 				->where('post_type', 'post')
-				->where('slug', '!=', $slug)
+				//->where('slug', '!=', $slug)
+				->where('posts.id', '!=', $post->id)
 				->where('posts.publish_date', '<=', new Datetime())
 				->orderBy('publish_date', 'DESC')->take(5)->get();
 		}
