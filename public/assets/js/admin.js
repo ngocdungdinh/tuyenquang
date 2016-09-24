@@ -192,6 +192,40 @@ function image_send_to_editor(photo_url, e) {
     // $('#modal_updateMedia').modal('hide');
     $(e).addClass('disabled');
 }
+
+function addSliderImage(mid, e) {
+    var pid = 1;
+    $(e).addClass('disabled');
+    $.ajax({
+        type: 'POST',
+        url: "/admin/slider/addimage",
+        data: {slider_id: pid, media_id: mid},
+        dataType: 'json',
+        ifModify: false,
+        success: function(data){
+            if(data.status!=0) {
+                $("#image-list", window.parent.document).append('<div id="productImg' +  data.id + '" style="width: 110px; float: left; margin: 5px 5px; "><div class="thumbnail"><div style="height:100px;"><img src="/' + data.mpath + '/100x100_crop/' + data.mname + '" width="100" /></div><a class="label label-default" href="javascript:void(0)" onclick="removeProductImage(' + data.id + ')" >Bỏ ảnh</a></div></div>');
+            }
+        }
+    });
+}
+
+function removeSliderImage(mid) {
+    var pid = 1;
+    $.ajax({
+        type: 'POST',
+        url: "/admin/slider/removeimage",
+        data: {slider_id: pid, media_id: mid},
+        dataType: 'json',
+        ifModify: false,
+        success: function(data){
+            if(data.status == 1) {
+                $("#productImg" + data.media_id).remove();
+            }
+        }
+    });
+}
+
 function embed_video(video_id, e) {
     var htmlContent = '<p align="center" class="flex-video"><iframe src="http://www.youtube.com/embed/'+video_id+'?rel=0&showinfo=0&ps=docs&autoplay=0&autohide=1&iv_load_policy=3&vq=large&modestbranding=1&nologo=1&enablejsapi=1" frameborder="0" allowfullscreen="1"></iframe></p>';
     CKEDITOR.instances.textareabox.insertHtml(htmlContent);

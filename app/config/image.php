@@ -28,6 +28,7 @@ return array(
         'thumb7' => array(600, 415, true, 100, true),
         'thumb8' => array(550, 500, false, 100, true),
         'thumb9' => array(200, 130, true, 100, true),
+        'thumb10' => array(1134, 208, true, 100),
         'medium' => array(670, 360, true, 100, true),
 
     ),

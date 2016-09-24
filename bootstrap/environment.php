@@ -1,5 +1,5 @@
 <?php
 
-return 'staging';
+return 'local';
 
 /* End of bootstrap/environment.php */

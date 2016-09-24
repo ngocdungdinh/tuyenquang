@@ -56,6 +56,7 @@ return array(
     'Controllers\\Admin\\RoyaltiesController' => $baseDir . '/app/controllers/admin/RoyaltiesController.php',
     'Controllers\\Admin\\SettingsController' => $baseDir . '/app/controllers/admin/SettingsController.php',
     'Controllers\\Admin\\SidebarsController' => $baseDir . '/app/controllers/admin/SidebarsController.php',
+    'Controllers\\Admin\\SlidersController' => $baseDir . '/app/controllers/admin/SlidersController.php',
     'Controllers\\Admin\\TagsController' => $baseDir . '/app/controllers/admin/TagsController.php',
     'Controllers\\Admin\\UsersController' => $baseDir . '/app/controllers/admin/UsersController.php',
     'Controllers\\Admin\\WidgetsController' => $baseDir . '/app/controllers/admin/WidgetsController.php',

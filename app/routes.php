@@ -277,6 +277,14 @@ Route::group(array('prefix' => 'admin'), function()
 		Route::post('/removewidgetref', array('as' => 'removewr/widgets', 'uses' => 'Controllers\Admin\WidgetsController@postRemoveWidgetRef'));
 		Route::post('/updateposition', array('as' => 'position/widgets', 'uses' => 'Controllers\Admin\WidgetsController@postUpdatePosition'));
 	});
+
+	# Pages Management
+	Route::group(array('prefix' => 'slider'), function()
+	{
+		Route::get('/', array('as' => 'slider', 'uses' => 'Controllers\Admin\SlidersController@getIndex'));
+		Route::post('addimage', 'Controllers\Admin\SlidersController@postAddImage');
+		Route::post('removeimage', 'Controllers\Admin\SlidersController@postRemoveImage');
+	});
 	
 	Route::post('/analytics', array('as' => 'admin/analytics', 'uses' => 'Controllers\Admin\DashboardController@postAnalytics'));
 

@@ -36,6 +36,9 @@
                     <a href="{{ URL::to('admin/news/sorts') }}" class="{{ (Request::is('admin/news/sorts') ? ' active' : '') }}"><i class="fa fa-angle-double-right"></i> Sắp xếp bài viết</a></a>
                 </li>
                 @endif
+                <li>
+                    <a href="{{ URL::to('admin/slider') }}" class="{{ (Request::is('admin/slider') ? ' active' : '') }}"><i class="fa fa-angle-double-right"></i> Quản lý Slider</a>
+                </li>
             </ul>
         </li>
         <li class="treeview {{ ((Request::is('admin/news') || Request::is('admin/news/create') || Request::is('admin/news/*/edit') || Request::is('admin/categories*') || Request::is('admin/tags*') || Request::is('admin/comments*')) ? ' active' : '') }}">

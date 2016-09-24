@@ -16,10 +16,9 @@
 			<div id="my_slider_content" class="mydata">
 				<div class="slider-wrapper theme-default">
 					<div id="slider" class="nivoSlider">
-						<a href="javascript:;"><img src="{{ asset('assets/img/banner.png') }}" alt="Photo by: Missy S Link: http://www.flickr.com/photos/listenmissy/5087404401/"></a>
-						<a href="javascript:;"><img src="{{ asset('assets/img/banner_2.jpg') }}" alt="Photo by: Daniel Parks Link: http://www.flickr.com/photos/parksdh/5227623068/"></a>
-						<a href="javascript:;"><img src="{{ asset('assets/img/banner.png') }}" alt="Photo by: Mike Ranweiler Link: http://www.flickr.com/photos/27874907@N04/4833059991/"></a>
-						<a href="javascript:;"><img src="{{ asset('assets/img/banner.png') }}" alt="Photo by: Stuart SeegerLink: http://www.flickr.com/photos/stuseeger/97577796/"></a>
+						@foreach($sliders->slidermedias as $m)
+						<a href="javascript:;"><img src="{{ asset($m->mpath .'/1134x208_crop/'. $m->mname ) }}" alt="{{$m->mname}}"></a>
+						@endforeach
 					</div>
 				</div>
 			</div>

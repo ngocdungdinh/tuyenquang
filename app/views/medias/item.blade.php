@@ -30,6 +30,8 @@
           @elseif($env == 'handbooks')
             <a class="btn btn-info btn-xs" rel="{{ $image->id }}" onclick="parent.image_send_to_editor('{{ $image->mpath.'/'.Config::get('image.bodysize').'/'.$image->mname }}', this);" data-toggle="tooltip" data-placement="bottom" data-original-title="Thêm ảnh vào nội dung bài"><span class="glyphicon glyphicon-save"></span></a>
             <a class="btn btn-warning btn-xs" href="javascript:void(0);" onclick="setCover('{{ $image->mpath }}', '{{ $image->mname }}', '{{ Config::get("image.featuredsize") }}', '{{ $image->id }}')" data-toggle="tooltip" data-placement="bottom" data-original-title="Chọn làm ảnh đại diện"><span class="glyphicon glyphicon-picture"></span></a>
+          @elseif($env == 'slider-images')
+            <a class="btn btn-info btn-xs" rel="{{ $image->id }}" onclick="parent.addSliderImage('{{ $image->id }}', this);" data-toggle="tooltip" data-placement="bottom" title="Thêm ảnh slider"><span class="glyphicon glyphicon-plus-sign"></span></a>
           @elseif($env == 'list')
 
           @else

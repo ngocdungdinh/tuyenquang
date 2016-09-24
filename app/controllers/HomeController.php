@@ -87,7 +87,7 @@ class HomeController extends BaseController {
             ->orWhere('category_id', $homefolder['GIOI_THIEU_CHUNG'])
             ->orWhere('category_id', $homefolder['DU_LICH'])
             ->orWhere('category_id', $homefolder['TIEM_NANG'])
-			->orderBy('created_at', 'DESC')->take(3)->get();
+			->orderBy('created_at', 'DESC')->get();
 
 		//tin tuc & su kien
 		$this->data['newshome'] = Post::select('posts.*', 'medias.mpath', 'medias.mname')

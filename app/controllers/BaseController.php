@@ -44,6 +44,8 @@ class BaseController extends Controller {
             ->orderBy('created_at', 'DESC')->take(5)->get();
 			
 		$this->data['u'] = $this->u = Sentry::check() ? Sentry::getUser() : null;
+
+		$this->data['sliders'] = Sliders::find(1);
 		//
 		$this->messageBag = new Illuminate\Support\MessageBag;
 	}

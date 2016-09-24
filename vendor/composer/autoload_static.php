@@ -288,6 +288,7 @@ class ComposerStaticInit78ddbb93f72c191c4037058329f4db9b
         'Controllers\\Admin\\RoyaltiesController' => __DIR__ . '/../..' . '/app/controllers/admin/RoyaltiesController.php',
         'Controllers\\Admin\\SettingsController' => __DIR__ . '/../..' . '/app/controllers/admin/SettingsController.php',
         'Controllers\\Admin\\SidebarsController' => __DIR__ . '/../..' . '/app/controllers/admin/SidebarsController.php',
+        'Controllers\\Admin\\SlidersController' => __DIR__ . '/../..' . '/app/controllers/admin/SlidersController.php',
         'Controllers\\Admin\\TagsController' => __DIR__ . '/../..' . '/app/controllers/admin/TagsController.php',
         'Controllers\\Admin\\UsersController' => __DIR__ . '/../..' . '/app/controllers/admin/UsersController.php',
         'Controllers\\Admin\\WidgetsController' => __DIR__ . '/../..' . '/app/controllers/admin/WidgetsController.php',
