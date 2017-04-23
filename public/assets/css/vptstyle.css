@@ -48,7 +48,6 @@ background-color:#005197;
 }
 
 .menu{
-background-color:#015176;
 margin:0;
 height:auto;
 }
@@ -656,7 +655,7 @@ margin-right:0px;
 	margin:5px 0;
 }
 .list_right2{
-	background-color:#015176;
+	background-color:#005197;
 	width:auto;
 	float: left;
 	margin:5px 0;
@@ -664,6 +663,9 @@ margin-right:0px;
 }
 .list_right2 a{
 	color:#FFFFFF;
+}
+.list_right2 a:hover{
+	color:#FFFF00 !important;
 }
 .list_right2 .link{
 	color:#FFFFFF;
@@ -697,7 +699,7 @@ float:left;
 line-height:18px;
 text-align:justify;
 }
-.link a:hover, .link_1 a:hover{ color: #FFFF00 !important }
+.link a:hover, .link_1 a:hover{ color: #005197; }
 .branch-name{
 	float:left;
 	width:80%;

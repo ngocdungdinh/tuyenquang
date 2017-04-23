@@ -8,65 +8,11 @@
 
 {{-- Page content --}}
 @section('content')
-	<div class="row">
 
-		<link rel="stylesheet" href="{{ asset('assets/nivo-slider/themes/default/default.css') }}" type="text/css" media="screen" />
-		<link rel="stylesheet" href="{{ asset('assets/nivo-slider/nivo-slider.css') }}" type="text/css" media="screen" />
-		<div id="sitewide_banner">
-			<div id="my_slider_content" class="mydata">
-				<div class="slider-wrapper theme-default">
-					<div id="slider" class="nivoSlider">
-						@foreach($sliders->slidermedias as $m)
-						<a href="javascript:;"><img src="{{ asset($m->mpath .'/1134x208_crop/'. $m->mname ) }}" alt="{{$m->mname}}"></a>
-						@endforeach
-					</div>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript" src="{{ asset('assets/nivo-slider/jquery.nivo.slider.js') }}"></script>
-		<script type="text/javascript">
-			$(window).load(function() {
-				$('#sitewide_banner').html($('#my_slider_content').html());
-				$('#my_slider_content').html('');
-				$('#slider').nivoSlider({controlNav: false, pauseTime: 2000});
-			});
-		</script>
-
-	</div>
 	<div class="row mix_content">
 		<!---------------------------------------------- left content-------------------------------------------------->
 		<div class="col-md-9 left-content">
-			<!--carousel{---->
-			<div class="row">
-				<div class="col-md-12 tintuc_div">
-					<div class="tab line_text1">
-						<span class="tit_underline">GIỚI THIỆU TỈNH TUYÊN QUANG</span></div>
-					<div class="button_next">
-						<span style="float:left"><a href="#myCarousel"  data-slide="prev"><img src="{{ asset('assets/img/pre.png') }}"></a></span>
-						<span style="float:left"><a href="#myCarousel" data-slide="next"><img src="{{ asset('assets/img/next.png') }}"></a></span>
-					</div>
-					<div class="col-md-12 tintuc_item inner-left">
-						<div class="text-center">
-							<div class="carousel slide row" data-ride="carousel" data-type="multi" data-interval="3000" id="myCarousel">
 
-								<div class="carousel-inner">
-									@foreach($intro as $key => $intro)
-									<div class="item {{$key==0?'active':''}}">
-										<!--<a href="#"><img src="http://placehold.it/500/666/fff&amp;text=1" class="img-responsive"></a>-->
-										<div class="col-md-4 thumnail">
-											<img class="img-resp" src="{{ asset($intro->mpath . '/235x178_crop/'. $intro->mname) }}"/>
-											<div class="title"><a href="{{ $intro->url() }}" title="{{ $intro->title }}">{{ $intro->title }}</a></div>
-										</div>
-									</div>
-									@endforeach
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div><!--tintuc_div-->
-			<!--}carousel---->
 			<div style="margin-top:10px;"></div>
 			<div class="row">
 				<div class="col-md-5 tintuc_div_left">
