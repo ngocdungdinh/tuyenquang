@@ -122,26 +122,6 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-10 tintuc_div">
-					<div class="tab line_text1">
-						<span class="tit_underline">thư viện hình ảnh</span>
-					</div>
-					<div class="button_next">
-						<span style="float:left"><a href="#myGallery"  data-slide="prev"><img src="{{ asset('assets/img/pre.png') }}"></a></span>
-						<span style="float:left"><a href="#myGallery"  data-slide="next"><img src="{{ asset('assets/img/next.png') }}"></a></span>
-					</div>
-					<div class="carousel slide tintuc_item inner-left" data-ride="carousel" data-type="multi" data-interval="3000" id="myGallery">
-						<div class="carousel-inner">
-                        @if(count($galleries) > 0)
-                            @foreach($galleries as $key=>$gallery)
-							<div class="item {{$key == 0?'active':''}}">
-								<div class="col-md-2 thumnail2 "><img class="img-resp" src="{{ asset($gallery->mpath . '/120x90_crop/'. $gallery->mname) }}"/></div>
-							</div>
-							@endforeach
-                        @endif
-						</div>
-					</div>
-				</div>
 			</div><!--tintuc_div-->
 			<div class="row" style="margin-top:10px;">
 				<div class="col-md-5 tintuc_div_left">
