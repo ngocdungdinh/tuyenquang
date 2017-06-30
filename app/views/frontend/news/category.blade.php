@@ -28,7 +28,7 @@
 							<div class="col-md-4 tt_thumb2"><span><img src="{{ asset($post->mpath . '/235x178_crop/'. $post->mname) }}"/></span></div>
 							<div class="col-md-8 content">
 								<a class="title_left" href="{{ $post->url() }}" title="{{ $post->title }}">{{ $post->title }}<br/>
-									<span style="color:#999999;">[17/03/2016]</span>
+									<span style="color:#999999;">[{{ date("H:i - d/m/Y",strtotime($post->created_at)) }}]</span>
 								</a>
 								<span>{{ Str::words($post->excerpt, 24) }}</span>
 							</div>
