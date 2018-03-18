@@ -51,6 +51,9 @@
             <a href="http://www.chinhphu.vn/" target="_blank">
                 <img src="{{ asset('assets/img/r6.png') }}" />
             </a>
+            <a href="http://binhchon.dulichtuyenquang.gov.vn/" target="_blank">
+                <img src="{{ asset('assets/img/cn.jpg') }}" />
+            </a>
         </div>
     </div>
 </div>
